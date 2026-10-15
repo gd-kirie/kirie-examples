@@ -1,0 +1,19 @@
+{
+  "name": "kirie-examples",
+  "version": "0.13.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.3.4",
+  "scripts": {
+    "lint:eslint": "eslint .",
+    "format:eslint": "eslint . --fix",
+    "release": "bumpp --recursive"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:",
+    "bumpp": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-format": "catalog:",
+    "kirie": "0.13.0"
+  }
+}

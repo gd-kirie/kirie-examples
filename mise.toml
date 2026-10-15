@@ -1,0 +1,40 @@
+[settings]
+lockfile = true
+legacy_version_file = false
+
+[plugins]
+godot = "https://github.com/LemonNekoGH/vfox-godot.git#dd88823451008524efde019c61e222b8dbbf8f62"
+
+[tools]
+godot = "4.7.2-stable_mono"
+node = "24.15.0"
+pnpm = "12.3.4"
+dotnet = "10.0.300"
+"pipx:apm-cli" = "0.31.0"
+
+[tasks.lint]
+depends = ["lint:eslint", "lint:csharp"]
+
+[tasks."lint:eslint"]
+run = "pnpm run lint:eslint"
+
+[tasks."lint:csharp"]
+dir = "examples"
+description = "Check C# whitespace without restoring native application dependencies"
+run = "dotnet format whitespace --folder . --include */scripts/*.cs --verify-no-changes"
+
+[tasks.format]
+depends = ["format:eslint", "format:csharp"]
+
+[tasks."format:eslint"]
+run = "pnpm run format:eslint"
+
+[tasks."format:csharp"]
+dir = "examples"
+run = "dotnet format whitespace --folder . --include */scripts/*.cs"
+
+[tasks."build:dotnet"]
+run = "dotnet build KirieExamples.slnx"
+
+[tasks.release]
+run = "pnpm run release"

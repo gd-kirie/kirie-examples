@@ -1,0 +1,21 @@
+packages:
+  - "examples/*"
+  - "examples/*/src-web"
+
+allowBuilds:
+  tree-sitter: true
+  tree-sitter-gdscript: true
+  tree-sitter-godot-resource: true
+  vue-demi: false
+
+catalog:
+  "@antfu/eslint-config": ^9.5.1
+  "@moeru/eventa": ^1.0.2
+  "@types/node": ^25.6.0
+  bumpp: ^11.0.1
+  execa: 9.6.1
+  eslint: ^10.11.0
+  eslint-plugin-format: ^2.0.1
+  typescript: ^6.0.3
+  typescript-to-gdscript: github:LemonNekoGH/typescript-to-gdscript#demo/external-package-sources
+  vite: ^8.0.16
