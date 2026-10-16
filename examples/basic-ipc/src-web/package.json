@@ -10,7 +10,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gd-kirie/ipc": "0.13.0"
+    "@gd-kirie/ipc": "0.14.1"
   },
   "devDependencies": {
     "@types/node": "catalog:",

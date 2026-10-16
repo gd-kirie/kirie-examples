@@ -8,8 +8,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gd-kirie/ipc": "0.13.0",
-    "@gd-kirie/ipc-eventa": "0.13.0",
+    "@gd-kirie/ipc": "0.14.1",
+    "@gd-kirie/ipc-eventa": "0.14.1",
     "@moeru/eventa": "catalog:"
   },
   "devDependencies": {

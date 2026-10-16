@@ -114,10 +114,8 @@ mise x -- godot --path ./examples/basic-kirie-cli
 ## Experimental Web export
 
 Web export requires the CLI and addon from
-[gd-kirie PR #124](https://github.com/gd-kirie/gd-kirie/pull/124).
-The pinned Kirie 0.13.0 packages do not include this target.
-After a release includes that PR, update the package versions and install the
-core addon before using these commands.
+[Kirie 0.14.1](https://github.com/gd-kirie/gd-kirie/releases/tag/v0.14.1).
+Install the dependencies and core addon before using these commands.
 
 For a Godot project with a compatible Web export preset, export the Godot app
 and Vite content together from the repository root:

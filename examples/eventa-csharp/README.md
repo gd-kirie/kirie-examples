@@ -59,11 +59,9 @@ Xcode uses the signing identity and provisioning profile from your account.
 
 ## Experimental Web export
 
-The Web preset uses the experimental target from
-[gd-kirie PR #124](https://github.com/gd-kirie/gd-kirie/pull/124).
-The pinned Kirie 0.13.0 packages do not include this target.
-After a release includes that PR, update the package versions and install the
-core addon before using these commands.
+The Web preset uses the experimental target in
+[Kirie 0.14.1](https://github.com/gd-kirie/gd-kirie/releases/tag/v0.14.1).
+Install the dependencies and core addon with the commands in Running before using this target.
 
 Godot 4.7.2 does not officially support C# Web export.
 This experiment uses templates from

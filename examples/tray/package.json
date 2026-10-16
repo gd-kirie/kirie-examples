@@ -9,7 +9,7 @@
     "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gd-kirie/ipc-eventa": "0.13.0",
+    "@gd-kirie/ipc-eventa": "0.14.1",
     "@gd-kirie/tray": "0.13.0",
     "@proj-airi/ui": "0.11.3",
     "vue": "3.5.41"
@@ -18,7 +18,7 @@
     "@proj-airi/unocss-preset-chromatic": "1.1.4",
     "@unocss/reset": "66.8.1",
     "@vitejs/plugin-vue": "6.0.8",
-    "kirie": "0.13.0",
+    "kirie": "0.14.1",
     "typescript": "catalog:",
     "unocss": "66.8.1",
     "vite": "catalog:",
