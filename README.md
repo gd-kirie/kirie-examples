@@ -26,6 +26,7 @@ Run the setup command in an example README before you build or open that project
 - [Basic Platform](examples/basic-platform/README.md): Use window controls and global shortcuts.
 - [Eventa C#](examples/eventa-csharp/README.md): Use events and requests from C# and JavaScript.
 - [Tray](examples/tray/README.md): Create a system tray icon and menu.
+- [Native Tray](examples/tray-native/README.md): Use tray and menu objects directly from C# without a WebView.
 - [Notifications](examples/notifications/README.md): Show notifications and handle activation.
 - [Embedded host](examples/basic-host-app-embedded/README.md): Embed Godot and Kirie in a native application.
 

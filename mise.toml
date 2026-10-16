@@ -21,7 +21,7 @@ run = "pnpm run lint:eslint"
 [tasks."lint:csharp"]
 dir = "examples"
 description = "Check C# whitespace without restoring native application dependencies"
-run = "dotnet format whitespace --folder . --include */scripts/*.cs --verify-no-changes"
+run = "dotnet format whitespace --folder . --include */scripts/*.cs tray-native/Main.cs --verify-no-changes"
 
 [tasks.format]
 depends = ["format:eslint", "format:csharp"]
@@ -31,7 +31,23 @@ run = "pnpm run format:eslint"
 
 [tasks."format:csharp"]
 dir = "examples"
-run = "dotnet format whitespace --folder . --include */scripts/*.cs"
+run = "dotnet format whitespace --folder . --include */scripts/*.cs tray-native/Main.cs"
+
+[tasks."test:tray-desktop"]
+description = "Run the browser Tray probe with installed addons and packages"
+run = """
+pnpm -C examples/tray run build
+godot --path examples/tray --editor --import
+godot --path examples/tray -- --kirie-tray-probe
+"""
+
+[tasks."test:tray-sdk"]
+description = "Run the native C# Tray probe with the installed addon and SDK"
+run = """
+dotnet build examples/tray-native/KirieTrayNative.csproj
+godot --path examples/tray-native --editor --import
+godot --path examples/tray-native -- --kirie-tray-sdk-probe
+"""
 
 [tasks."build:dotnet"]
 run = "dotnet build KirieExamples.slnx"

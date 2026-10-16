@@ -1,22 +1,31 @@
-# tray
+# Tray browser example
 
-A desktop example for the Kirie Tray plugin. It demonstrates the Tray lifecycle,
-an editable native menu, and menu activation events.
+This desktop example shares a C# check item with a browser through Eventa.
+The browser creates a tray menu, edits the shared item, and receives native events.
 
-Run these setup commands from the repository root:
+Run setup from the repository root:
 
 ```sh
-mise x -- pnpm install
-mise x -- pnpm -C examples/tray exec kirie doctor --fix
+mise x -- pnpm install --frozen-lockfile
+mise x -- pnpm -C examples/tray exec kirie doctor --fix plugin:core
+mise x -- pnpm -C examples/tray exec kirie doctor --fix plugin:tray
 mise x -- pnpm -C examples/tray exec kirie build dotnet
-```
-
-Start the Kirie-managed Vite server and Godot project together:
-
-```sh
 mise x -- pnpm -C examples/tray run dev
 ```
 
-The CLI installs the core and Tray addons from the published packages.
-The Tray package includes the native libraries for all supported desktop targets.
-Godot loads and exports the library for the selected platform.
+The CLI installs the core and Tray addons from npm packages.
+The browser example uses the `GdKirie.Tray.EventaAdapter` NuGet package.
+
+A bootstrap request replaces the previous browser adapter after a reload.
+The C# check item remains alive. Host shutdown releases the adapter and its objects.
+
+Run the browser probe after setup:
+
+```sh
+mise run test:tray-desktop
+```
+
+The probe checks shared-object edits, handle reuse, native IDs, and boundary errors.
+Native clicks and platform-specific behavior need desktop acceptance tests.
+See the [Tray API and platform limits](https://github.com/gd-kirie/kirie-plugins/tree/main/packages/tray)
+and the [native C# example](../tray-native/README.md).

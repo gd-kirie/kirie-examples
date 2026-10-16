@@ -8,6 +8,6 @@
   <ItemGroup>
     <Compile Remove="node_modules/**/*.cs" />
     <PackageReference Include="GdKirie.EventaAdapter" Version="0.13.0" />
-    <PackageReference Include="GdKirie.Tray" Version="0.13.0" />
+    <PackageReference Include="GdKirie.Tray.EventaAdapter" Version="0.13.0" />
   </ItemGroup>
 </Project>
