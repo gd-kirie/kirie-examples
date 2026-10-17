@@ -1,8 +1,0 @@
-{
-  "name": "@gd-kirie/example-tray-native",
-  "version": "0.13.0",
-  "private": true,
-  "dependencies": {
-    "@gd-kirie/tray": "0.13.0"
-  }
-}

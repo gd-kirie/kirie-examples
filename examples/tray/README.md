@@ -30,4 +30,3 @@ const stop = client.onEvent((event) => {
 
 Tray events and menu behavior depend on the desktop platform.
 Closing a handle does not cancel global events. Call the unsubscribe function explicitly.
-See the [native C# example](../tray-native/README.md).

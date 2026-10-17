@@ -21,7 +21,7 @@ run = "pnpm run lint:eslint"
 [tasks."lint:csharp"]
 dir = "examples"
 description = "Check C# whitespace without restoring native application dependencies"
-run = "dotnet format whitespace --folder . --include */scripts/*.cs tray-native/Main.cs --verify-no-changes"
+run = "dotnet format whitespace --folder . --include */scripts/*.cs --verify-no-changes"
 
 [tasks.format]
 depends = ["format:eslint", "format:csharp"]
@@ -31,7 +31,7 @@ run = "pnpm run format:eslint"
 
 [tasks."format:csharp"]
 dir = "examples"
-run = "dotnet format whitespace --folder . --include */scripts/*.cs tray-native/Main.cs"
+run = "dotnet format whitespace --folder . --include */scripts/*.cs"
 
 [tasks."build:dotnet"]
 run = "dotnet build KirieExamples.slnx"
