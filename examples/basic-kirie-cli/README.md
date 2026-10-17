@@ -111,6 +111,26 @@ You can also run the game directly from the command line:
 mise x -- godot --path ./examples/basic-kirie-cli
 ```
 
+## Experimental Web export
+
+Web export requires the CLI and addon from
+[Kirie 0.14.1](https://github.com/gd-kirie/gd-kirie/releases/tag/v0.14.1).
+Install the dependencies and core addon before using these commands.
+
+For a Godot project with a compatible Web export preset, export the Godot app
+and Vite content together from the repository root:
+
+```sh
+mise x -- pnpm exec kirie export web --project examples/basic-kirie-cli
+```
+
+The default entry is `dist/kirie/web/index.html` inside the example directory.
+Serve that directory so `src-web/dist/index.html` uses the same origin.
+The threaded templates require the HTTP response headers
+`Cross-Origin-Opener-Policy: same-origin` and
+`Cross-Origin-Embedder-Policy: require-corp`.
+For the C# toolchain setup, see the [Eventa C# example](../eventa-csharp/README.md#experimental-web-export).
+
 ## Running an exported mobile app
 
 Run these commands from the repository root after installing the addons.

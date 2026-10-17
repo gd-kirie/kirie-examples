@@ -1,7 +1,8 @@
 # Kirie examples
 
 This repository contains runnable examples for [Kirie](https://github.com/gd-kirie/gd-kirie).
-The examples use Kirie 0.13.0 npm and NuGet packages.
+The examples use Kirie 0.14.1 core npm and NuGet packages.
+The Tray and Notifications plugins remain at 0.13.0.
 The embedded-host prototype also needs core source and a custom Godot build.
 
 ## Setup
