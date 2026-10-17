@@ -28,7 +28,10 @@ async function show(): Promise<void> {
   }
 }
 
-onBeforeUnmount(() => { stop?.(); eventa?.dispose(); });
+onBeforeUnmount(() => {
+  stop?.();
+  eventa?.dispose();
+});
 </script>
 
 <template>

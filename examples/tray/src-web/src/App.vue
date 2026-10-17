@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import type { TrayMenuItem } from "@gd-kirie/tray";
+import type { Menu, MenuEntry, Resource, TrayIcon } from "@gd-kirie/tray";
 import { createContext } from "@gd-kirie/ipc-eventa";
-import { createTrayClient, trayMenuItemActivated } from "@gd-kirie/tray";
+import { CheckMenuItem, createTrayClient } from "@gd-kirie/tray";
+import { defineInvoke, defineInvokeEventa } from "@moeru/eventa";
 import Button from "@proj-airi/ui/src/components/misc/button.vue";
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
 
 interface MenuNode {
   key: string;
-  type: TrayMenuItem["type"];
+  type: "item" | "check" | "submenu" | "separator";
   text: string;
   enabled: boolean;
   checked: boolean;
@@ -23,95 +24,54 @@ interface TreeRow {
 const os = window.kirie?.platform.os;
 const isDesktop = os === "linux" || os === "macos" || os === "windows";
 const eventa = isDesktop ? createContext() : undefined;
-const tray = eventa ? createTrayClient(eventa.context) : undefined;
+const client = eventa ? createTrayClient(eventa.context) : undefined;
+let nextId = 1;
 const menuItems = ref<MenuNode[]>([
-  {
-    key: "open",
-    type: "item",
-    text: "Open Kirie",
-    enabled: true,
-    checked: false,
-    children: [],
-  },
-  {
-    key: "enabled",
-    type: "check",
-    text: "Enabled",
-    enabled: true,
-    checked: true,
-    children: [],
-  },
-  {
-    key: "separator-main",
-    type: "separator",
-    text: "",
-    enabled: true,
-    checked: false,
-    children: [],
-  },
-  {
+  createNode({ key: "open", text: "Open Kirie" }),
+  createNode({ key: "shared-check", text: "Enabled", type: "check", checked: true }),
+  createNode({ key: "separator-main", text: "", type: "separator" }),
+  createNode({
     key: "tools",
-    type: "submenu",
     text: "Tools",
-    enabled: true,
-    checked: false,
+    type: "submenu",
     children: [
-      {
-        key: "refresh",
-        type: "item",
-        text: "Refresh",
-        enabled: true,
-        checked: false,
-        children: [],
-      },
-      {
-        key: "settings",
-        type: "item",
-        text: "Settings",
-        enabled: false,
-        checked: false,
-        children: [],
-      },
+      createNode({ key: "refresh", text: "Refresh" }),
+      createNode({ key: "settings", text: "Settings", enabled: false }),
     ],
-  },
-  {
-    key: "quit",
-    type: "item",
-    text: "Quit",
-    enabled: true,
-    checked: false,
-    children: [],
-  },
+  }),
+  createNode({ key: "quit", text: "Quit" }),
 ]);
 const lastClickedId = ref("");
-const trayReady = ref(false);
-const status = ref(tray ? "Creating tray…" : "Tray requires a desktop Kirie host");
+const tray = shallowRef<TrayIcon>();
+const busy = ref(false);
+const status = ref(client ? "Creating tray…" : "Tray requires a desktop Kirie host");
+const lastEvent = ref("");
 const tooltip = ref("Kirie Tray");
 const visible = ref(true);
 const useTemplateIcon = ref(os === "macos");
-let nextId = 1;
-let syncTimer: number | undefined;
-let tooltipSyncTimer: number | undefined;
 let stopTrayActivation: (() => void) | undefined;
+let menu: Menu | undefined;
+let shared: CheckMenuItem;
+let ownedEntries: MenuEntry[] = [];
 
 const iconPath = computed(() => useTemplateIcon.value
   ? "res://tray-template.svg"
   : "res://icon.svg");
 
-function flatten(nodes: MenuNode[], parentPath: number[] = [], depth = 0): TreeRow[] {
+function flatten(nodes: MenuNode[], parentPath: number[] = []): TreeRow[] {
   return nodes.flatMap((node, index) => {
     const path = [...parentPath, index];
     return [
-      { node, path, depth },
-      ...(node.type === "submenu" ? flatten(node.children, path, depth + 1) : []),
+      { node, path, depth: parentPath.length },
+      ...(node.type === "submenu" ? flatten(node.children, path) : []),
     ];
   });
 }
 
 const rows = computed(() => flatten(menuItems.value));
 
-function createNode(): MenuNode {
-  const key = `item-${Date.now()}-${nextId++}`;
+function createNode(options: Partial<MenuNode> = {}): MenuNode {
+  const key = `item-${nextId++}`;
   return {
     key,
     type: "item",
@@ -119,6 +79,7 @@ function createNode(): MenuNode {
     enabled: true,
     checked: false,
     children: [],
+    ...options,
   };
 }
 
@@ -196,55 +157,63 @@ function changeType(node: MenuNode, event: Event): void {
     node.children = [];
 }
 
-function toTrayItem(node: MenuNode): TrayMenuItem {
-  const text = node.text.trim() || "Untitled item";
-
-  if (node.type === "separator")
-    return { type: "separator" };
-
-  if (node.type === "submenu") {
-    return {
-      type: "submenu",
-      text,
-      enabled: node.enabled,
-      children: node.children.map(toTrayItem),
-    };
+async function createEntries(nodes: MenuNode[], owned: MenuEntry[]): Promise<MenuEntry[]> {
+  const items: MenuEntry[] = [];
+  for (const node of nodes) {
+    const options = { id: node.key, text: node.text, enabled: node.enabled };
+    let entry: MenuEntry;
+    if (node.type === "check" && node.key === shared.id) {
+      await shared.setText(node.text);
+      await shared.setEnabled(node.enabled);
+      await shared.setChecked(node.checked);
+      entry = shared;
+    } else {
+      switch (node.type) {
+        case "separator":
+          entry = await client!.predefined.separator();
+          break;
+        case "submenu":
+          entry = await client!.createSubmenu({ ...options, items: await createEntries(node.children, owned) });
+          break;
+        case "check":
+          entry = await client!.createCheckMenuItem({ ...options, checked: node.checked });
+          break;
+        default:
+          entry = await client!.createMenuItem(options);
+      }
+      owned.push(entry);
+    }
+    items.push(entry);
   }
-
-  if (node.type === "check") {
-    return {
-      type: "check",
-      id: node.key,
-      text,
-      enabled: node.enabled,
-      checked: node.checked,
-    };
-  }
-
-  return {
-    type: "item",
-    id: node.key,
-    text,
-    enabled: node.enabled,
-  };
+  return items;
 }
 
-function findMenuItem(nodes: MenuNode[], id: string): MenuNode | undefined {
-  for (const node of nodes) {
-    if (node.key === id && (node.type === "item" || node.type === "check"))
-      return node;
-
-    const child = findMenuItem(node.children, id);
-    if (child)
-      return child;
-  }
+async function closeMenu(target: Menu | undefined, entries: MenuEntry[]): Promise<void> {
+  await target?.close();
+  for (const entry of entries)
+    await entry.close();
 }
 
 async function syncTrayMenu(): Promise<void> {
-  if (!tray || !trayReady.value)
+  if (!client || !tray.value)
     return;
 
-  await tray.setMenu(menuItems.value.map(toTrayItem));
+  const entries: MenuEntry[] = [];
+  let nextMenu: Menu | undefined;
+  try {
+    const items = await createEntries(menuItems.value, entries);
+    nextMenu = await client.createMenu({ items });
+    await tray.value.setMenu(nextMenu);
+  } catch (error) {
+    await closeMenu(nextMenu, entries);
+    throw error;
+  }
+
+  const previousMenu = menu;
+  const previousEntries = ownedEntries;
+  menu = nextMenu;
+  ownedEntries = entries;
+  await closeMenu(previousMenu, previousEntries);
   status.value = "Tray menu synced";
 }
 
@@ -254,102 +223,115 @@ function reportError(error: unknown): void {
 }
 
 function runAction(action: () => Promise<void>): void {
-  action().catch(reportError);
-}
-
-function scheduleTraySync(): void {
-  if (!trayReady.value)
+  if (busy.value)
     return;
 
-  window.clearTimeout(syncTimer);
+  busy.value = true;
+  action().catch(reportError).finally(() => {
+    busy.value = false;
+  });
+}
+
+watch(menuItems, (_current, _previous, onCleanup) => {
+  if (!tray.value || busy.value)
+    return;
+
   status.value = "Syncing changes…";
-  syncTimer = window.setTimeout(() => syncTrayMenu().catch(reportError), 120);
-}
+  const timer = window.setTimeout(runAction, 120, syncTrayMenu);
+  onCleanup(() => window.clearTimeout(timer));
+}, { deep: true });
 
-function scheduleTooltipSync(): void {
-  if (!trayReady.value)
+watch(tooltip, (_current, _previous, onCleanup) => {
+  if (!tray.value || busy.value)
     return;
 
-  window.clearTimeout(tooltipSyncTimer);
   status.value = "Syncing tooltip…";
-  tooltipSyncTimer = window.setTimeout(() => updateTooltip().catch(reportError), 120);
-}
-
-watch(menuItems, scheduleTraySync, { deep: true });
-watch(tooltip, scheduleTooltipSync);
-
-function selectedIcon() {
-  return {
-    icon: iconPath.value,
-    iconAsTemplate: useTemplateIcon.value,
-  };
-}
+  const timer = window.setTimeout(runAction, 120, updateTooltip);
+  onCleanup(() => window.clearTimeout(timer));
+});
 
 async function initializeTray(): Promise<void> {
-  if (!tray)
+  if (!client || !eventa)
     return;
 
-  await tray.create(selectedIcon());
-  trayReady.value = true;
+  if (!shared) {
+    const startPage = defineInvoke(eventa.context, defineInvokeEventa<Resource, null>("example:tray:start-page"));
+    const item = client.fromResource(await startPage(null));
+    if (!(item instanceof CheckMenuItem))
+      throw new Error("The host did not return a check menu item");
+    shared = item;
+    const node = rows.value.find(row => row.node.key === shared.id)!.node;
+    node.text = await shared.text();
+    node.checked = await shared.isChecked();
+  }
+  tray.value = await client.createTray({
+    icon: { kind: "resource", path: iconPath.value },
+    iconAsTemplate: useTemplateIcon.value,
+    tooltip: tooltip.value || null,
+  });
   await syncTrayMenu();
-  await tray.setTooltip(tooltip.value || null);
-  await tray.setVisible(visible.value);
-  status.value = `Tray active on ${os}`;
+  await tray.value.setVisible(visible.value);
+  status.value = "Native tray ready";
 }
 
 async function updateIcon(): Promise<void> {
-  if (!tray || !trayReady.value)
+  if (!tray.value)
     return;
 
-  await tray.setIcon(selectedIcon());
+  await tray.value.setIcon({ kind: "resource", path: iconPath.value }, useTemplateIcon.value);
   status.value = `Icon set to ${iconPath.value}`;
 }
 
 async function updateTooltip(): Promise<void> {
-  if (!tray || !trayReady.value)
+  if (!tray.value)
     return;
 
-  await tray.setTooltip(tooltip.value || null);
+  await tray.value.setTooltip(tooltip.value || null);
   status.value = tooltip.value ? "Tooltip updated" : "Tooltip cleared";
 }
 
 async function updateVisibility(): Promise<void> {
-  if (!tray || !trayReady.value)
+  if (!tray.value)
     return;
 
-  await tray.setVisible(visible.value);
+  await tray.value.setVisible(visible.value);
   status.value = visible.value ? "Tray shown" : "Tray hidden";
 }
 
 async function destroyTray(): Promise<void> {
-  if (!tray || !trayReady.value)
+  if (!tray.value)
     return;
 
-  await tray.destroy();
-  trayReady.value = false;
+  await tray.value.close();
+  tray.value = undefined;
+  await closeMenu(menu, ownedEntries);
+  menu = undefined;
+  ownedEntries = [];
   status.value = "Tray destroyed";
 }
 
 onMounted(() => {
-  if (!eventa || !tray)
+  if (!client)
     return;
 
-  stopTrayActivation = eventa.context.on(trayMenuItemActivated, ({ body }) => {
-    if (!body)
+  stopTrayActivation = client.onEvent((event) => {
+    lastEvent.value = JSON.stringify(event);
+    if (event.type !== "menu")
       return;
 
-    lastClickedId.value = body;
-    const item = findMenuItem(menuItems.value, body);
-    if (item?.type === "check")
-      item.checked = !item.checked;
+    lastClickedId.value = event.id;
+    const node = rows.value.find(row => row.node.key === event.id)?.node;
+    const entry = event.id === shared?.id ? shared : ownedEntries.find(item => item.id === event.id);
+    if (node?.type === "check" && entry instanceof CheckMenuItem) {
+      entry.isChecked().then((value) => {
+        node.checked = value;
+      }).catch(reportError);
+    }
   });
-
   runAction(initializeTray);
 });
 
 onBeforeUnmount(() => {
-  window.clearTimeout(syncTimer);
-  window.clearTimeout(tooltipSyncTimer);
   stopTrayActivation?.();
   eventa?.dispose();
 });
@@ -364,10 +346,10 @@ onBeforeUnmount(() => {
             Kirie Tray
           </h1>
           <p class="mt-1 text-sm text-neutral-500">
-            Exercise every public Tray plugin operation
+            Edit the native tray and menu. The shared-check item comes from C#.
           </p>
         </div>
-        <p class="font-mono text-xs text-neutral-500">
+        <p class="font-mono text-xs text-neutral-500" role="status">
           {{ status }}
         </p>
       </header>
@@ -386,7 +368,7 @@ onBeforeUnmount(() => {
             <button
               class="rounded-lg border border-blue-600 bg-blue-600 px-3 py-2 text-xs text-white font-medium enabled:hover:border-blue-700 enabled:hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
               type="button"
-              :disabled="!tray || trayReady"
+              :disabled="!client || tray !== undefined || busy"
               @click="runAction(initializeTray)"
             >
               Create
@@ -394,7 +376,7 @@ onBeforeUnmount(() => {
             <button
               class="rounded-lg border border-neutral-300 bg-white px-3 py-2 text-xs text-red-700 font-medium enabled:hover:border-neutral-400 enabled:hover:bg-neutral-100 disabled:cursor-not-allowed disabled:opacity-40"
               type="button"
-              :disabled="!trayReady"
+              :disabled="!tray || busy"
               @click="runAction(destroyTray)"
             >
               Destroy
@@ -409,7 +391,7 @@ onBeforeUnmount(() => {
           </div>
           <div class="flex flex-col gap-1 rounded-xl border border-neutral-200 bg-neutral-50 p-3 text-sm">
             <span class="text-xs text-neutral-500">Lifecycle</span>
-            <strong>{{ trayReady ? "created" : "not created" }}</strong>
+            <strong>{{ tray ? "created" : "not created" }}</strong>
           </div>
           <div class="flex flex-col gap-1 rounded-xl border border-neutral-200 bg-neutral-50 p-3 text-sm">
             <span class="text-xs text-neutral-500">Last activation</span>
@@ -423,7 +405,7 @@ onBeforeUnmount(() => {
             <select
               v-model="useTemplateIcon"
               class="rounded-lg border border-neutral-200 bg-neutral-50 px-2.5 py-2 text-neutral-800 outline-none"
-              :disabled="!trayReady"
+              :disabled="!tray || busy"
               @change="runAction(updateIcon)"
             >
               <option :value="false">Regular icon</option>
@@ -437,7 +419,7 @@ onBeforeUnmount(() => {
             <input
               v-model="tooltip"
               class="rounded-lg border border-neutral-200 bg-neutral-50 px-2.5 py-2 text-neutral-800 outline-none"
-              :disabled="!trayReady"
+              :disabled="!tray || busy"
               placeholder="Clear the field to remove the tooltip"
             >
           </label>
@@ -448,7 +430,7 @@ onBeforeUnmount(() => {
               <input
                 v-model="visible"
                 type="checkbox"
-                :disabled="!trayReady"
+                :disabled="!tray || busy"
                 @change="runAction(updateVisibility)"
               >
               {{ visible ? "Visible" : "Hidden" }}
@@ -457,7 +439,7 @@ onBeforeUnmount(() => {
         </div>
       </section>
 
-      <section class="rounded-2xl border-2 border-neutral-200 bg-white/70 p-5 shadow-sm md:p-6">
+      <fieldset :disabled="busy || !client" class="min-w-0 rounded-2xl border-2 border-neutral-200 bg-white/70 p-5 shadow-sm md:p-6">
         <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 class="text-base font-semibold">
@@ -487,10 +469,18 @@ onBeforeUnmount(() => {
                 class="rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-2 text-sm outline-none"
                 @change="changeType(row.node, $event)"
               >
-                <option value="item">Item</option>
-                <option value="check">Check</option>
-                <option value="submenu">Submenu</option>
-                <option value="separator">Separator</option>
+                <option value="item">
+                  Item
+                </option>
+                <option value="check">
+                  Check
+                </option>
+                <option value="submenu">
+                  Submenu
+                </option>
+                <option value="separator">
+                  Separator
+                </option>
               </select>
               <input
                 v-if="row.node.type !== 'separator'"
@@ -550,6 +540,13 @@ onBeforeUnmount(() => {
             Add the first item
           </button>
         </div>
+      </fieldset>
+
+      <section>
+        <h2 class="mb-2 text-base font-semibold">
+          Last native event
+        </h2>
+        <pre class="overflow-auto rounded-lg bg-neutral-100 p-3 text-xs">{{ lastEvent || "Click the tray or a menu item." }}</pre>
       </section>
     </div>
   </main>

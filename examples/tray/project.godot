@@ -1,11 +1,19 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
 
 config/name="Kirie Tray"
 run/main_scene="res://main.tscn"
-config/icon="res://icon.svg"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
+config/icon="res://icon.svg"
 
 [display]
 
@@ -19,8 +27,3 @@ project/assembly_name="KirieTray"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/kirie/plugin.cfg")
-
-[rendering]
-
-renderer/rendering_method="forward_plus"
-renderer/rendering_method.mobile="mobile"

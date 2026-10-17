@@ -1,22 +1,31 @@
-# tray
+# Tray browser example
 
-A desktop example for the Kirie Tray plugin. It demonstrates the Tray lifecycle,
-an editable native menu, and menu activation events.
+This desktop example shares a C# check item with a browser through Eventa.
+The browser creates a tray menu, edits the shared item, and receives native events.
+The menu editor supports item creation, nesting, ordering, and deletion.
 
-Run these setup commands from the repository root:
+This example uses Kirie 0.14.2 and Tray 0.14.1.
+
+Run setup from the repository root:
 
 ```sh
-mise x -- pnpm install
-mise x -- pnpm -C examples/tray exec kirie doctor --fix
+mise x -- pnpm install --frozen-lockfile
+mise x -- pnpm -C examples/tray exec kirie doctor --fix plugin:core
+mise x -- pnpm -C examples/tray exec kirie doctor --fix plugin:tray
 mise x -- pnpm -C examples/tray exec kirie build dotnet
-```
-
-Start the Kirie-managed Vite server and Godot project together:
-
-```sh
 mise x -- pnpm -C examples/tray run dev
 ```
 
-The CLI installs the core and Tray addons from the published packages.
-The Tray package includes the native libraries for all supported desktop targets.
-Godot loads and exports the library for the selected platform.
+The CLI installs the addons from npm. The `GdKirie.Tray` NuGet package includes the Eventa adapter.
+The browser handles menu events by their native IDs:
+
+```ts
+const stop = client.onEvent((event) => {
+  if (event.type === "menu" && event.id === shared.id)
+    console.log(event.id);
+});
+// Call stop() before disposing the browser Eventa context.
+```
+
+Tray events and menu behavior depend on the desktop platform.
+Closing a handle does not cancel global events. Call the unsubscribe function explicitly.

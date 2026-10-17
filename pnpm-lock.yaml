@@ -334,12 +334,18 @@ importers:
 
   examples/tray:
     dependencies:
+      '@gd-kirie/ipc':
+        specifier: 0.14.2
+        version: 0.14.2
       '@gd-kirie/ipc-eventa':
-        specifier: 0.13.0
-        version: 0.13.0(web-worker@1.5.0)
+        specifier: 0.14.2
+        version: 0.14.2(web-worker@1.5.0)
       '@gd-kirie/tray':
-        specifier: 0.13.0
-        version: 0.13.0(kirie@0.13.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)
+        specifier: 0.14.1
+        version: 0.14.1(kirie@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)
+      '@moeru/eventa':
+        specifier: 'catalog:'
+        version: 1.0.2(web-worker@1.5.0)
       '@proj-airi/ui':
         specifier: 0.11.3
         version: 0.11.3(typescript@6.0.3)
@@ -357,8 +363,8 @@ importers:
         specifier: 6.0.8
         version: 6.0.8(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(vue@3.5.41(typescript@6.0.3))
       kirie:
-        specifier: 0.13.0
-        version: 0.13.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+        specifier: 0.14.2
+        version: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -593,11 +599,20 @@ packages:
   '@gd-kirie/build@0.13.0':
     resolution: {integrity: sha512-rrEKimR61ZfRTbLKwf65YuEVBCS4YVr6sebtcLdYexmNu1QyrZXcOgjUGPcgS5gN7IwijhyJz2+yJNM/UZA6IQ==}
 
+  '@gd-kirie/build@0.14.2':
+    resolution: {integrity: sha512-y8O5JDanEJvc3S6KOtbNGHlYJ+Wu71tXygVPyZVCo3qRWa5VfmelFjZwD1xpmAlGuv5tIqK3tMHwOX3IDIWncA==}
+
   '@gd-kirie/ipc-eventa@0.13.0':
     resolution: {integrity: sha512-uFIttRGdl2EMREfn7faTbmV/ZXzbjpLRcn/J8uNug4hhIdPYpqJaaOzFyeXe7452RL78MXgqVgPdPCx8dEh/TQ==}
 
+  '@gd-kirie/ipc-eventa@0.14.2':
+    resolution: {integrity: sha512-k0+ZhSdxMWIcNuKRh69wwVR1BMirAMQj0cxzU8ktT49wHtkCLbXRfY6cyNgX1TECpcdpbf8oaw4LamY8ASGMlg==}
+
   '@gd-kirie/ipc@0.13.0':
     resolution: {integrity: sha512-2rc9ZnGShaYcPLSUIoNEs+OuWVfmzcjFWplfUyXy9XF/JI7v4WuxMQTjO2w7tZ88xRjcvo1WUlqfXJfStTxelg==}
+
+  '@gd-kirie/ipc@0.14.2':
+    resolution: {integrity: sha512-xHMmKOqjnZkJzv+FHbNjsxicQbQqLOdrWRwjtVF48VBY0sd6qGhsI3G16PFUr8wku8/6gXrsvgXO5IPfN4hAFA==}
 
   '@gd-kirie/notifications@0.13.0':
     resolution: {integrity: sha512-bs6g5BwTm44RIJFPHS2SHxKps2fJdKDNvyaCX83utr00LVqVZQmH+uxuj5majQXvEztaupgf3TKGUFO+ZQ/E2Q==}
@@ -605,10 +620,10 @@ packages:
   '@gd-kirie/platform@0.13.0':
     resolution: {integrity: sha512-HG4tw87mt7XUYdYcl9X/SAycwnH6/wrrO5xP18jU2KNjDsHPxGkcZsi13mS6aLxo6PZbHUe4a34uVXDlr/TdHw==}
 
-  '@gd-kirie/tray@0.13.0':
-    resolution: {integrity: sha512-iozznp6dyRiIoPX2flkn1ugJ8pqUhHQwP+gy5oMQcb2BDpaRolwVSu+J93WppmGkm0un7frdOcbUvImOOmUflA==}
+  '@gd-kirie/tray@0.14.1':
+    resolution: {integrity: sha512-zy+Q5sHkMhlcZDniKXEPvGImXzxLYIASPgK4gH1tHSJqh5f6d2bxTDMQfBdz7RlKEx4Bnq8Luy9qYCCPHudrwg==}
     peerDependencies:
-      kirie: ^0.13.0
+      kirie: ^0.14.2
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -2051,6 +2066,10 @@ packages:
     resolution: {integrity: sha512-jETqLPIEutUc26/m0fv6+7XO2XGsQqkBlo+Y4dpDz1N8emnEApWnfQ/lucwmya4aq8KI3qx/j+F+dA0dg1aFXg==}
     hasBin: true
 
+  kirie@0.14.2:
+    resolution: {integrity: sha512-Pcu3VSNX7ZQ4WJGbYReuDXidu7YEnQjlaXl7DpNPL0+njVTVOnFX11ZOJ+Bj+zb0CAERalCau6e5a1XLa9JAqA==}
+    hasBin: true
+
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -3124,6 +3143,25 @@ snapshots:
       - tsx
       - yaml
 
+  '@gd-kirie/build@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)':
+    dependencies:
+      execa: 9.6.1
+      ini: 7.0.0
+      vite: 8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@vitejs/devtools'
+      - esbuild
+      - jiti
+      - less
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
+
   '@gd-kirie/ipc-eventa@0.13.0(web-worker@1.5.0)':
     dependencies:
       '@gd-kirie/ipc': 0.13.0
@@ -3135,7 +3173,22 @@ snapshots:
       - hono
       - web-worker
 
+  '@gd-kirie/ipc-eventa@0.14.2(web-worker@1.5.0)':
+    dependencies:
+      '@gd-kirie/ipc': 0.14.2
+      '@moeru/eventa': 1.0.2(web-worker@1.5.0)
+    transitivePeerDependencies:
+      - '@tauri-apps/api'
+      - electron
+      - h3
+      - hono
+      - web-worker
+
   '@gd-kirie/ipc@0.13.0':
+    dependencies:
+      cborg: 4.5.8
+
+  '@gd-kirie/ipc@0.14.2':
     dependencies:
       cborg: 4.5.8
 
@@ -3174,11 +3227,11 @@ snapshots:
       - hono
       - web-worker
 
-  '@gd-kirie/tray@0.13.0(kirie@0.13.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)':
+  '@gd-kirie/tray@0.14.1(kirie@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)':
     dependencies:
-      '@gd-kirie/ipc-eventa': 0.13.0(web-worker@1.5.0)
+      '@gd-kirie/ipc-eventa': 0.14.2(web-worker@1.5.0)
       '@moeru/eventa': 1.0.2(web-worker@1.5.0)
-      kirie: 0.13.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      kirie: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@tauri-apps/api'
       - electron
@@ -4552,6 +4605,28 @@ snapshots:
   kirie@0.13.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
       '@gd-kirie/build': 0.13.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      citty: 0.2.2
+      execa: 9.6.1
+      giget: 3.3.0
+      takanawa-node: 0.9.0
+      vite: 8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@vitejs/devtools'
+      - esbuild
+      - jiti
+      - less
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
+
+  kirie@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1):
+    dependencies:
+      '@gd-kirie/build': 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       citty: 0.2.2
       execa: 9.6.1
       giget: 3.3.0
