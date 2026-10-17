@@ -7,12 +7,11 @@ using Godot;
 
 public partial class Main : Node
 {
-    private readonly InvokeEventDefinition<TrayResource, BootstrapRequest> _bootstrap = new("example:tray:bootstrap");
     private KirieClient? _kirie;
     private KirieEventaContextHandle? _eventa;
-    private TrayEventaAdapter? _tray;
+    private TrayEventaAdapter? _trayAdapter;
     private CheckMenuItem? _sharedItem;
-    private IDisposable? _bootstrapRegistration;
+    private IDisposable? _pageRegistration;
 
     public override void _Ready()
     {
@@ -25,14 +24,16 @@ public partial class Main : Node
 
         _sharedItem = new CheckMenuItem(new CheckMenuItemOptions("Created in C#") { Id = "shared-check", Checked = true });
 
+        var startPage = new InvokeEventDefinition<TrayResource, object?>("example:tray:start-page");
         var registry = GdKirieTrayEventaAdapter.Register(new KirieEventaJsonRegistry());
-        registry.RegisterInvoke(_bootstrap, TrayExampleJsonContext.Default.TrayResource, TrayExampleJsonContext.Default.BootstrapRequest);
+        registry.RegisterInvoke(startPage, TrayExampleJsonContext.Default.TrayResource, TrayExampleJsonContext.Default.Object);
         _eventa = _kirie.CreateEventaContext(registry);
-        _bootstrapRegistration = _eventa.Context.RegisterInvokeHandler(_bootstrap, (BootstrapRequest _, CancellationToken _) =>
+        _pageRegistration = _eventa.Context.RegisterInvokeHandler(startPage, (object? _, CancellationToken _) =>
         {
-            _tray?.Dispose();
-            _tray = GdKirieTrayEventaAdapter.Attach(_eventa.Context);
-            return Task.FromResult(_tray.Expose(_sharedItem));
+            // A new page releases the previous page's handles. The C# item stays alive.
+            _trayAdapter?.Dispose();
+            _trayAdapter = GdKirieTrayEventaAdapter.Attach(_eventa.Context);
+            return Task.FromResult(_trayAdapter.Expose(_sharedItem));
         });
         _kirie.IpcError += GD.PushError;
 
@@ -42,17 +43,15 @@ public partial class Main : Node
 
     public override void _ExitTree()
     {
-        _bootstrapRegistration?.Dispose();
-        _tray?.Dispose();
+        _pageRegistration?.Dispose();
+        _trayAdapter?.Dispose();
         _sharedItem?.Dispose();
         _eventa?.Dispose();
         _kirie?.Dispose();
     }
 
-    private sealed record BootstrapRequest;
-
     [JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
-    [JsonSerializable(typeof(BootstrapRequest))]
+    [JsonSerializable(typeof(object))]
     [JsonSerializable(typeof(TrayResource))]
     private sealed partial class TrayExampleJsonContext : JsonSerializerContext;
 }
