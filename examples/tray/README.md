@@ -27,13 +27,6 @@ const stop = client.onEvent((event) => {
 // Call stop() before disposing the browser Eventa context.
 ```
 
-Run the browser probe after setup:
-
-```sh
-mise run test:tray-desktop
-```
-
-The probe covers shared state, reference release, and synthetic global signals.
-It does not test real system clicks. Tray events and menu behavior depend on the desktop platform.
+Tray events and menu behavior depend on the desktop platform.
 Closing a handle does not cancel global events. Call the unsubscribe function explicitly.
 See the [native C# example](../tray-native/README.md).

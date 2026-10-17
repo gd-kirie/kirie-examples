@@ -28,12 +28,5 @@ events.Menu += id =>
 };
 ```
 
-Run the native object and ownership probe after setup:
-
-```sh
-mise run test:tray-sdk
-```
-
-The probe uses synthetic global signals. It does not test real system clicks.
 Linux does not support `ShowMenu()`. Other platform limits follow the native libraries.
 See the [browser example](../tray/README.md).
