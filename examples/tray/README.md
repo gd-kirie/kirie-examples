@@ -4,8 +4,7 @@ This desktop example shares a C# check item with a browser through Eventa.
 The browser creates a tray menu, edits the shared item, and receives native events.
 The menu editor supports item creation, nesting, ordering, and deletion.
 
-Published Tray 0.13.0 predates this API. This example requires a matching Tray release.
-The core npm and NuGet dependencies remain at 0.13.0.
+This example uses Kirie 0.14.2 and Tray 0.14.1.
 
 Run setup from the repository root:
 

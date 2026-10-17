@@ -19,3 +19,10 @@ catalog:
   typescript: ^6.0.3
   typescript-to-gdscript: github:LemonNekoGH/typescript-to-gdscript#demo/external-package-sources
   vite: ^8.0.16
+
+minimumReleaseAgeExclude:
+  - '@gd-kirie/build@0.14.2'
+  - '@gd-kirie/ipc-eventa@0.14.2'
+  - '@gd-kirie/ipc@0.14.2'
+  - '@gd-kirie/tray@0.14.1'
+  - kirie@0.14.2
