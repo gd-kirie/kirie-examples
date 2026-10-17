@@ -34,7 +34,9 @@ function runAction(action: () => Promise<void>): void {
     return;
 
   busy.value = true;
-  action().catch(reportError).finally(() => { busy.value = false; });
+  action().catch(reportError).finally(() => {
+    busy.value = false;
+  });
 }
 
 async function initialize(): Promise<void> {
@@ -53,8 +55,8 @@ async function initialize(): Promise<void> {
   });
   stopEvents = client.onEvent((event) => {
     lastEvent.value = JSON.stringify(event);
-    if (event.type === "menu" && event.item.handle === shared.handle)
-      shared.isChecked().then(value => { checked.value = value; }).catch(reportError);
+    if (event.type === "menu" && event.id === shared.id)
+      shared.isChecked().then((value) => { checked.value = value; }).catch(reportError);
   });
   status.value = "Native tray ready";
 }

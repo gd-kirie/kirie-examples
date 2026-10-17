@@ -37,7 +37,7 @@ run = "dotnet format whitespace --folder . --include */scripts/*.cs tray-native/
 description = "Run the browser Tray probe with installed addons and packages"
 run = """
 pnpm -C examples/tray run build
-godot --path examples/tray --editor --import
+godot --path examples/tray --editor --import --quit
 godot --path examples/tray -- --kirie-tray-probe
 """
 
@@ -45,7 +45,7 @@ godot --path examples/tray -- --kirie-tray-probe
 description = "Run the native C# Tray probe with the installed addon and SDK"
 run = """
 dotnet build examples/tray-native/KirieTrayNative.csproj
-godot --path examples/tray-native --editor --import
+godot --path examples/tray-native --editor --import --quit
 godot --path examples/tray-native -- --kirie-tray-sdk-probe
 """
 

@@ -3,6 +3,9 @@
 This desktop example shares a C# check item with a browser through Eventa.
 The browser creates a tray menu, edits the shared item, and receives native events.
 
+Published Tray 0.13.0 predates this API. This example requires a matching Tray release.
+The core npm and NuGet dependencies remain at 0.13.0.
+
 Run setup from the repository root:
 
 ```sh
@@ -13,11 +16,16 @@ mise x -- pnpm -C examples/tray exec kirie build dotnet
 mise x -- pnpm -C examples/tray run dev
 ```
 
-The CLI installs the core and Tray addons from npm packages.
-The browser example uses the `GdKirie.Tray.EventaAdapter` NuGet package.
+The CLI installs the addons from npm. The `GdKirie.Tray` NuGet package includes the Eventa adapter.
+The browser handles menu events by their native IDs:
 
-A bootstrap request replaces the previous browser adapter after a reload.
-The C# check item remains alive. Host shutdown releases the adapter and its objects.
+```ts
+const stop = client.onEvent((event) => {
+  if (event.type === "menu" && event.id === shared.id)
+    console.log(event.id);
+});
+// Call stop() before disposing the browser Eventa context.
+```
 
 Run the browser probe after setup:
 
@@ -25,7 +33,7 @@ Run the browser probe after setup:
 mise run test:tray-desktop
 ```
 
-The probe checks shared-object edits, handle reuse, native IDs, and boundary errors.
-Native clicks and platform-specific behavior need desktop acceptance tests.
-See the [Tray API and platform limits](https://github.com/gd-kirie/kirie-plugins/tree/main/packages/tray)
-and the [native C# example](../tray-native/README.md).
+The probe covers shared state, reference release, and synthetic global signals.
+It does not test real system clicks. Tray events and menu behavior depend on the desktop platform.
+Closing a handle does not cancel global events. Call the unsubscribe function explicitly.
+See the [native C# example](../tray-native/README.md).
