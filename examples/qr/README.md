@@ -26,7 +26,7 @@ mise x -- pnpm -C examples/qr exec kirie build dotnet
 The project enables the Kirie and QR editor plugins.
 The QR plugin installs the native QR and NativeCamera dependencies.
 Android includes the recognition model in the application. Scanning does not require Google Play Services or a model download.
-The upstream iOS binaries support devices only.
+The upstream iOS binaries require iOS 16 or later and support devices only.
 
 ## Run on a device
 
@@ -38,6 +38,8 @@ mise x -- pnpm -C examples/qr exec kirie export ios
 ```
 
 For iOS, select your development team in the exported Xcode project before you install the application.
+A free Apple Account can use Xcode's Personal Team for device testing; provisioning expires after seven days.
+See [Apple's Personal Team instructions](https://developer.apple.com/help/account/basics/about-your-developer-account#enable-a-personal-team-in-xcode).
 Allow camera access when the application requests permission.
 
 Generate an image with **Generate PNG**. Then select **Scan this image** to decode it.
