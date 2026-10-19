@@ -27,7 +27,7 @@ Run the setup command in an example README before you build or open that project
 - [Eventa C#](examples/eventa-csharp/README.md): Use events and requests from C# and JavaScript.
 - [Tray](examples/tray/README.md): Create a system tray icon and menu.
 - [Notifications](examples/notifications/README.md): Show notifications and handle activation.
-- [QR](examples/qr/README.md): Generate QR images and scan images or the camera on Android and iOS. Pending coordinated release.
+- [QR](examples/qr/README.md): Generate QR images and scan images or the camera on Android and iOS.
 - [Embedded host](examples/basic-host-app-embedded/README.md): Embed Godot and Kirie in a native application.
 
 ## Development

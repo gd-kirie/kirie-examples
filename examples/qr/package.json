@@ -9,6 +9,7 @@
     "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@gd-kirie/ipc": "0.14.2",
     "@gd-kirie/ipc-eventa": "0.14.2",
     "@gd-kirie/qr": "0.14.1",
     "@proj-airi/ui": "0.11.3",
