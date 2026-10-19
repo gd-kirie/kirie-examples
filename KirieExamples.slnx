@@ -4,6 +4,7 @@
     <Project Path="examples/basic-platform/KirieBasicPlatform.csproj" />
     <Project Path="examples/eventa-csharp/KirieEventaCSharp.csproj" />
     <Project Path="examples/notifications/KirieNotifications.csproj" />
+    <Project Path="examples/qr/KirieQr.csproj" />
     <Project Path="examples/tray/KirieTray.csproj" />
   </Folder>
 </Solution>
