@@ -19,11 +19,11 @@
   "devDependencies": {
     "@proj-airi/unocss-preset-chromatic": "1.1.4",
     "@unocss/reset": "66.8.1",
-    "@vitejs/plugin-vue": "6.0.8",
+    "@vitejs/plugin-vue": "6.0.10",
     "kirie": "0.14.2",
     "typescript": "catalog:",
     "unocss": "66.8.1",
     "vite": "catalog:",
-    "vue-tsc": "3.3.11"
+    "vue-tsc": "3.3.13"
   }
 }
