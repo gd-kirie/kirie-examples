@@ -19,7 +19,7 @@ mise x -- pnpm -C examples/qr exec kirie build dotnet
 ```
 
 The project enables the Kirie and QR editor plugins.
-The QR plugin installs the native QR and NativeCamera dependencies.
+The QR plugin installs the native QR and NativeCamera dependencies and activates them for iOS exports.
 See the [platform requirements and native limits](https://github.com/gd-kirie/kirie-plugins/blob/main/packages/GdKirie.Qr/README.md#native-dependencies-and-limitations).
 
 ## Run on a device
