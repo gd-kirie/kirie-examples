@@ -155,8 +155,8 @@ importers:
         specifier: 'catalog:'
         version: 2.0.1(eslint@10.13.0(jiti@2.7.0))
       kirie:
-        specifier: 0.14.2
-        version: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
 
   examples/basic-host-app-embedded:
     devDependencies:
@@ -173,11 +173,11 @@ importers:
   examples/basic-host-app-embedded/src-web:
     dependencies:
       '@gd-kirie/ipc':
-        specifier: 0.14.2
-        version: 0.14.2
+        specifier: 0.15.0
+        version: 0.15.0
       '@gd-kirie/ipc-eventa':
-        specifier: 0.14.2
-        version: 0.14.2(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
       '@moeru/eventa':
         specifier: 'catalog:'
         version: 1.0.2(web-worker@1.5.0)
@@ -195,8 +195,8 @@ importers:
   examples/basic-ipc/src-web:
     dependencies:
       '@gd-kirie/ipc':
-        specifier: 0.14.2
-        version: 0.14.2
+        specifier: 0.15.0
+        version: 0.15.0
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
@@ -211,15 +211,15 @@ importers:
   examples/basic-kirie-cli:
     dependencies:
       '@gd-kirie/ipc':
-        specifier: 0.14.2
-        version: 0.14.2
+        specifier: 0.15.0
+        version: 0.15.0
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.9
       kirie:
-        specifier: 0.14.2
-        version: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -233,11 +233,11 @@ importers:
   examples/basic-platform:
     dependencies:
       '@gd-kirie/ipc-eventa':
-        specifier: 0.14.2
-        version: 0.14.2(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
       '@gd-kirie/platform':
-        specifier: 0.14.2
-        version: 0.14.2(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
       '@proj-airi/ui':
         specifier: 0.11.3
         version: 0.11.3(typescript@6.0.3)
@@ -258,8 +258,8 @@ importers:
         specifier: 6.0.10
         version: 6.0.10(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(vue@3.5.41(typescript@6.0.3))
       kirie:
-        specifier: 0.14.2
-        version: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -276,8 +276,8 @@ importers:
   examples/eventa-csharp/src-web:
     dependencies:
       '@gd-kirie/ipc-eventa':
-        specifier: 0.14.2
-        version: 0.14.2(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
       '@moeru/eventa':
         specifier: 'catalog:'
         version: 1.0.2(web-worker@1.5.0)
@@ -295,11 +295,11 @@ importers:
   examples/notifications:
     dependencies:
       '@gd-kirie/ipc-eventa':
-        specifier: 0.14.2
-        version: 0.14.2(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
       '@gd-kirie/notifications':
-        specifier: 0.14.1
-        version: 0.14.1(@types/node@25.9.9)(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)
       '@proj-airi/ui':
         specifier: 0.11.3
         version: 0.11.3(typescript@6.0.3)
@@ -317,8 +317,8 @@ importers:
         specifier: 6.0.10
         version: 6.0.10(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(vue@3.5.41(typescript@6.0.3))
       kirie:
-        specifier: 0.14.2
-        version: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -332,17 +332,60 @@ importers:
         specifier: 3.3.13
         version: 3.3.13(typescript@6.0.3)
 
+  examples/qr:
+    dependencies:
+      '@gd-kirie/ipc':
+        specifier: 0.15.0
+        version: 0.15.0
+      '@gd-kirie/ipc-eventa':
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
+      '@gd-kirie/qr':
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)
+      '@proj-airi/ui':
+        specifier: 0.11.3
+        version: 0.11.3(typescript@6.0.3)
+      vue:
+        specifier: 3.5.41
+        version: 3.5.41(typescript@6.0.3)
+    devDependencies:
+      '@proj-airi/unocss-preset-chromatic':
+        specifier: 1.1.4
+        version: 1.1.4
+      '@unocss/reset':
+        specifier: 66.8.1
+        version: 66.8.1
+      '@vitejs/plugin-vue':
+        specifier: 6.0.8
+        version: 6.0.8(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(vue@3.5.41(typescript@6.0.3))
+      kirie:
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+      unocss:
+        specifier: 66.8.1
+        version: 66.8.1(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))
+      vite:
+        specifier: 'catalog:'
+        version: 8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      vue-tsc:
+        specifier: 3.3.11
+        version: 3.3.11(typescript@6.0.3)
+
   examples/tray:
     dependencies:
       '@gd-kirie/ipc':
-        specifier: 0.14.2
-        version: 0.14.2
+        specifier: 0.15.0
+        version: 0.15.0
       '@gd-kirie/ipc-eventa':
-        specifier: 0.14.2
-        version: 0.14.2(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(web-worker@1.5.0)
       '@gd-kirie/tray':
-        specifier: 0.14.1
-        version: 0.14.1(kirie@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)
+        specifier: 0.15.0
+        version: 0.15.0(kirie@0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)
       '@moeru/eventa':
         specifier: 'catalog:'
         version: 1.0.2(web-worker@1.5.0)
@@ -363,8 +406,8 @@ importers:
         specifier: 6.0.10
         version: 6.0.10(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(vue@3.5.41(typescript@6.0.3))
       kirie:
-        specifier: 0.14.2
-        version: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+        specifier: 0.15.0
+        version: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -596,25 +639,28 @@ packages:
     peerDependencies:
       vue: '>=3.3.0'
 
-  '@gd-kirie/build@0.14.2':
-    resolution: {integrity: sha512-y8O5JDanEJvc3S6KOtbNGHlYJ+Wu71tXygVPyZVCo3qRWa5VfmelFjZwD1xpmAlGuv5tIqK3tMHwOX3IDIWncA==}
+  '@gd-kirie/build@0.15.0':
+    resolution: {integrity: sha512-ezOakWa9yhJ+oLCqERNM2nTOBt6uhV1A0zTfQ8mTy03CYQdJ0XFtTFitgkOYh0P7wB53MUsIVdvnMTmqurf71A==}
 
-  '@gd-kirie/ipc-eventa@0.14.2':
-    resolution: {integrity: sha512-k0+ZhSdxMWIcNuKRh69wwVR1BMirAMQj0cxzU8ktT49wHtkCLbXRfY6cyNgX1TECpcdpbf8oaw4LamY8ASGMlg==}
+  '@gd-kirie/ipc-eventa@0.15.0':
+    resolution: {integrity: sha512-FVMfU0Jbodxab7ZGLpdQkYNR07/TX6Jwhe34wv+i9LndRviO1m/7MqA9ZEZrc/XZ+PpZWXTKO1zh+p899GJuIA==}
 
-  '@gd-kirie/ipc@0.14.2':
-    resolution: {integrity: sha512-xHMmKOqjnZkJzv+FHbNjsxicQbQqLOdrWRwjtVF48VBY0sd6qGhsI3G16PFUr8wku8/6gXrsvgXO5IPfN4hAFA==}
+  '@gd-kirie/ipc@0.15.0':
+    resolution: {integrity: sha512-FRBzqVob7d31sEzwjbBC/DANBAOSt4ZTiH7O9qzrGs6Q5P9GNUX+H4ppSVMtiEzya5PVc53Vc+ap2D667ZeX+w==}
 
-  '@gd-kirie/notifications@0.14.1':
-    resolution: {integrity: sha512-6iPhm9qmyOwv4AaPcgb3eO191xVHhC/2n7UDkss4zpn0+4l/bKwXuBh0FVfO/QHHu8/OSv8t1Y95TKz5VszJXw==}
+  '@gd-kirie/notifications@0.15.0':
+    resolution: {integrity: sha512-1EEsf/5mul2C0Zl/ogws6/DryDdDGeuRRnbwqyOSO3p9hMQ+vJaOwl42pm3yRdm8VhYzMIeLombmxBHcCzzrzg==}
 
-  '@gd-kirie/platform@0.14.2':
-    resolution: {integrity: sha512-nttAxYjTRh1JncCWv9OegfY1AaiN4C4PvWivIBFHiV93Z7iW27yYTiH9nhHM+VPLXv9PBSeevGo8RP6GzA6ETQ==}
+  '@gd-kirie/platform@0.15.0':
+    resolution: {integrity: sha512-dObhOjBHMXxKgcwpNR26cS+7HuJWk30GD8J0jy/aGF39JcPAgKLnmhCzr6ld6bnxIXGQCw3BTHbX+UF8V07Ayg==}
 
-  '@gd-kirie/tray@0.14.1':
-    resolution: {integrity: sha512-zy+Q5sHkMhlcZDniKXEPvGImXzxLYIASPgK4gH1tHSJqh5f6d2bxTDMQfBdz7RlKEx4Bnq8Luy9qYCCPHudrwg==}
+  '@gd-kirie/qr@0.15.0':
+    resolution: {integrity: sha512-gjy/di97qx4mKRleD3MJIKi8GMPl+WVqQPWgapYLf9hB9pWUX8e6isRlLgEss1TFPRJhb5EeBnjlkXECZwiptQ==}
+
+  '@gd-kirie/tray@0.15.0':
+    resolution: {integrity: sha512-CQ2TQX+lAYIrg2htpeTPJI+GwbOBt6aCbSsQB6RbXJPykAzQgwa1+mIz/kiyrurGf9Ae2F7okt3m2OvLanxXfA==}
     peerDependencies:
-      kirie: ^0.14.2
+      kirie: ^0.15.0
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -1279,6 +1325,13 @@ packages:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
       vue: ^3.2.25 || ^3.6.0-rc.10
 
+  '@vitejs/plugin-vue@6.0.8':
+    resolution: {integrity: sha512-0ZjgOg7oO6farnNGup7yvoM/YXZV84OZxHAwtflItNa/6zzQyVb5LNxyea3FEKEX2XlagIKzrlH7wwxkKgtiew==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+      vue: ^3.2.25
+
   '@vitest/eslint-plugin@1.6.27':
     resolution: {integrity: sha512-X1RCAfwbatG4GFbJ/1PIHP9MSZMt0JJThqbYID+vS4L783k6QGlLPe421wQE8dHXuGCcenVLsydiM4qzsYWxhg==}
     engines: {node: '>=18'}
@@ -1326,6 +1379,9 @@ packages:
 
   '@vue/compiler-ssr@3.5.41':
     resolution: {integrity: sha512-U3v5OejKEGqOI0Wy0+Sz7hGuIFZHA4LSXzrNM3IMIeDyJEBBfTpX26n3SDgToRpP2bLc9FfI2j/kSgcJ8Emq5A==}
+
+  '@vue/language-core@3.3.11':
+    resolution: {integrity: sha512-QJmpliwAVpC/OxubIByPAhNzsQPRc8/gxlN2qnVzVfIMjMDz/9RnXRFoetjz5yEgXVXyp4LqhXq3V53PjmNzFw==}
 
   '@vue/language-core@3.3.13':
     resolution: {integrity: sha512-axA0Xemn5LuUKuKWob0/kVq7xQ2mJJM6VqA9Exvt35nM9yRC31goWVve/G/Zb2ZCLsXC8FHYjjfXlnshknSCew==}
@@ -2016,6 +2072,9 @@ packages:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
     hasBin: true
 
+  js-base64@3.9.4:
+    resolution: {integrity: sha512-PtOMXpEGuP0RRiRXsjzHzl44dMHxSu2CPvAhinupR1tBa88me+1DPqsobl7eupn5UukjLkln1ZnAOAOXOrYG0Q==}
+
   js-yaml@5.4.3:
     resolution: {integrity: sha512-yzzNtgczwgoVHNigCyKTXcQJU4Y8t/ikU4UxXW0BvrLfHTGWZhsNcOT2s/a7vn81/4KqVnNmHjaUEPlvWnNwVw==}
     hasBin: true
@@ -2053,8 +2112,8 @@ packages:
   keyv@5.6.0:
     resolution: {integrity: sha512-CYDD3SOtsHtyXeEORYRx2qBtpDJFjRTGXUtmNEMGyzYOKj1TE3tycdlho7kA1Ufx9OYWZzg52QFBGALTirzDSw==}
 
-  kirie@0.14.2:
-    resolution: {integrity: sha512-Pcu3VSNX7ZQ4WJGbYReuDXidu7YEnQjlaXl7DpNPL0+njVTVOnFX11ZOJ+Bj+zb0CAERalCau6e5a1XLa9JAqA==}
+  kirie@0.15.0:
+    resolution: {integrity: sha512-C73UtJrsXjM8MJZ+eCGGt4cOiXa2cpniHgp+KBgYsKZxebWBK4zGGOexT2f5bBg6sHWAVW0iy28mNwGIubskCg==}
     hasBin: true
 
   levn@0.4.1:
@@ -2829,6 +2888,12 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
 
+  vue-tsc@3.3.11:
+    resolution: {integrity: sha512-gOb0B9rtU2+f1dszwPqSH5kAieIF9ReeLhD3kSRNHv5WZZUQz/JdVXW0RTdqhNTMlQkqKzrTTviqKr/4FYZraQ==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=5.0.0'
+
   vue-tsc@3.3.13:
     resolution: {integrity: sha512-jE4/bXdOMSHVxEGgQCqNllJy+9N3Gx6tfSAsg0yhFK/MAN6eXqISihupnDEKSCt12VVnjN2gI3AqLYcqoh5x/A==}
     hasBin: true
@@ -3110,7 +3175,7 @@ snapshots:
       '@floating-ui/utils': 0.2.12
       vue: 3.5.41(typescript@6.0.3)
 
-  '@gd-kirie/build@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)':
+  '@gd-kirie/build@0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)':
     dependencies:
       execa: 9.6.1
       ini: 7.0.0
@@ -3129,9 +3194,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@gd-kirie/ipc-eventa@0.14.2(web-worker@1.5.0)':
+  '@gd-kirie/ipc-eventa@0.15.0(web-worker@1.5.0)':
     dependencies:
-      '@gd-kirie/ipc': 0.14.2
+      '@gd-kirie/ipc': 0.15.0
       '@moeru/eventa': 1.0.2(web-worker@1.5.0)
     transitivePeerDependencies:
       - '@tauri-apps/api'
@@ -3140,15 +3205,15 @@ snapshots:
       - hono
       - web-worker
 
-  '@gd-kirie/ipc@0.14.2':
+  '@gd-kirie/ipc@0.15.0':
     dependencies:
       cborg: 4.5.8
 
-  '@gd-kirie/notifications@0.14.1(@types/node@25.9.9)(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)':
+  '@gd-kirie/notifications@0.15.0(@types/node@25.9.9)(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)':
     dependencies:
-      '@gd-kirie/ipc-eventa': 0.14.2(web-worker@1.5.0)
+      '@gd-kirie/ipc-eventa': 0.15.0(web-worker@1.5.0)
       '@moeru/eventa': 1.0.2(web-worker@1.5.0)
-      kirie: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      kirie: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@tauri-apps/api'
       - '@types/node'
@@ -3168,9 +3233,9 @@ snapshots:
       - web-worker
       - yaml
 
-  '@gd-kirie/platform@0.14.2(web-worker@1.5.0)':
+  '@gd-kirie/platform@0.15.0(web-worker@1.5.0)':
     dependencies:
-      '@gd-kirie/ipc-eventa': 0.14.2(web-worker@1.5.0)
+      '@gd-kirie/ipc-eventa': 0.15.0(web-worker@1.5.0)
       '@moeru/eventa': 1.0.2(web-worker@1.5.0)
     transitivePeerDependencies:
       - '@tauri-apps/api'
@@ -3179,11 +3244,36 @@ snapshots:
       - hono
       - web-worker
 
-  '@gd-kirie/tray@0.14.1(kirie@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)':
+  '@gd-kirie/qr@0.15.0(@types/node@25.9.9)(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)':
     dependencies:
-      '@gd-kirie/ipc-eventa': 0.14.2(web-worker@1.5.0)
+      '@gd-kirie/ipc-eventa': 0.15.0(web-worker@1.5.0)
       '@moeru/eventa': 1.0.2(web-worker@1.5.0)
-      kirie: 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      js-base64: 3.9.4
+      kirie: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@tauri-apps/api'
+      - '@types/node'
+      - '@vitejs/devtools'
+      - electron
+      - esbuild
+      - h3
+      - hono
+      - jiti
+      - less
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - web-worker
+      - yaml
+
+  '@gd-kirie/tray@0.15.0(kirie@0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(web-worker@1.5.0)':
+    dependencies:
+      '@gd-kirie/ipc-eventa': 0.15.0(web-worker@1.5.0)
+      '@moeru/eventa': 1.0.2(web-worker@1.5.0)
+      kirie: 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@tauri-apps/api'
       - electron
@@ -3753,6 +3843,12 @@ snapshots:
       vite: 8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       vue: 3.5.41(typescript@6.0.3)
 
+  '@vitejs/plugin-vue@6.0.8(vite@8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1))(vue@3.5.41(typescript@6.0.3))':
+    dependencies:
+      '@rolldown/pluginutils': 1.0.1
+      vite: 8.3.4(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      vue: 3.5.41(typescript@6.0.3)
+
   '@vitest/eslint-plugin@1.6.27(@typescript-eslint/eslint-plugin@8.71.2(@typescript-eslint/parser@8.71.2(eslint@10.13.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0))(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.71.2
@@ -3820,6 +3916,16 @@ snapshots:
     dependencies:
       '@vue/compiler-dom': 3.5.41
       '@vue/shared': 3.5.41
+
+  '@vue/language-core@3.3.11':
+    dependencies:
+      '@volar/language-core': 2.4.28
+      '@vue/compiler-dom': 3.5.44
+      '@vue/shared': 3.5.44
+      alien-signals: 3.2.1
+      muggle-string: 0.4.1
+      path-browserify: 1.0.1
+      picomatch: 4.0.7
 
   '@vue/language-core@3.3.13':
     dependencies:
@@ -4520,6 +4626,8 @@ snapshots:
 
   jiti@2.7.0: {}
 
+  js-base64@3.9.4: {}
+
   js-yaml@5.4.3:
     dependencies:
       argparse: 2.0.1
@@ -4554,9 +4662,9 @@ snapshots:
     dependencies:
       '@keyv/serialize': 1.1.1
 
-  kirie@0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1):
+  kirie@0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
-      '@gd-kirie/build': 0.14.2(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
+      '@gd-kirie/build': 0.15.0(@types/node@25.9.9)(jiti@2.7.0)(yaml@2.9.1)
       citty: 0.2.2
       execa: 9.6.1
       giget: 3.3.0
@@ -5536,6 +5644,12 @@ snapshots:
       semver: 7.8.5
     transitivePeerDependencies:
       - supports-color
+
+  vue-tsc@3.3.11(typescript@6.0.3):
+    dependencies:
+      '@volar/typescript': 2.4.28(typescript@6.0.3)
+      '@vue/language-core': 3.3.11
+      typescript: 6.0.3
 
   vue-tsc@3.3.13(typescript@6.0.3):
     dependencies:

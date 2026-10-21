@@ -4,8 +4,6 @@ This desktop example shares a C# check item with a browser through Eventa.
 The browser creates a tray menu, edits the shared item, and receives native events.
 The menu editor supports item creation, nesting, ordering, and deletion.
 
-This example uses Kirie 0.14.2 and Tray 0.14.1.
-
 Run setup from the repository root:
 
 ```sh

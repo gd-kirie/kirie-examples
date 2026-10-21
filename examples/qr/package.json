@@ -1,0 +1,28 @@
+{
+  "name": "@gd-kirie/example-qr",
+  "version": "0.14.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "kirie build",
+    "dev": "kirie dev",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@gd-kirie/ipc": "0.15.0",
+    "@gd-kirie/ipc-eventa": "0.15.0",
+    "@gd-kirie/qr": "0.15.0",
+    "@proj-airi/ui": "0.11.3",
+    "vue": "3.5.41"
+  },
+  "devDependencies": {
+    "@proj-airi/unocss-preset-chromatic": "1.1.4",
+    "@unocss/reset": "66.8.1",
+    "@vitejs/plugin-vue": "6.0.8",
+    "kirie": "0.15.0",
+    "typescript": "catalog:",
+    "unocss": "66.8.1",
+    "vite": "catalog:",
+    "vue-tsc": "3.3.11"
+  }
+}
