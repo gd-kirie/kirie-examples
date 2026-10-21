@@ -11,10 +11,10 @@
     "typecheck": "pnpm run build:godot && tsc -p src-web/tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gd-kirie/ipc": "0.14.2"
+    "@gd-kirie/ipc": "0.15.0"
   },
   "devDependencies": {
-    "kirie": "0.14.2",
+    "kirie": "0.15.0",
     "@types/node": "catalog:",
     "typescript": "catalog:",
     "typescript-to-gdscript": "catalog:",
