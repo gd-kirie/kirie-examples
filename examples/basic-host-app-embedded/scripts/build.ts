@@ -12,10 +12,11 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const exampleDir = path.resolve(scriptDir, "..");
 const exampleName = path.basename(exampleDir);
 const rootDir = path.resolve(exampleDir, "../..");
-const kirieSourceRoot = process.env.KIRIE_SOURCE_ROOT;
-if (!kirieSourceRoot) {
+const kirieSourceRootEnv = process.env.KIRIE_SOURCE_ROOT;
+if (!kirieSourceRootEnv) {
   throw new Error("Set KIRIE_SOURCE_ROOT to the gd-kirie source checkout.");
 }
+const kirieSourceRoot: string = kirieSourceRootEnv;
 
 const outputRoot = path.join(rootDir, "dist/examples/basic-host-app-embedded");
 const stagedWorkspace = path.join(outputRoot, "workspace");
