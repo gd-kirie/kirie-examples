@@ -5,22 +5,22 @@ import "./style.css";
 
 type KirieExampleMode = "manual" | "probe";
 
-type WebToGodotMessage =
-  | {
+type WebToGodotMessage
+  = | {
     type: "web_ready";
     payload: {
       source: KirieExampleMode;
       userAgent: string;
     };
-  } |
-  {
+  }
+  | {
     type: "web_ack";
     payload: {
       source: "probe";
       acknowledgedType: string;
     };
-  } |
-  {
+  }
+  | {
     type: "web_ping";
     payload: {
       source: "web";
@@ -65,7 +65,9 @@ function postToGodot(message: WebToGodotMessage): void {
     sendText(messageText);
     appendLog(`Sent text to Godot: ${messageText}`);
   } catch (error) {
-    appendLog(error instanceof Error ? error.message : "Kirie native bridge is unavailable");
+    appendLog(error instanceof Error
+      ? error.message
+      : "Kirie native bridge is unavailable");
   }
 }
 

@@ -59,7 +59,9 @@ async function verifyGodotInvoke(message: string): Promise<void> {
     appendLog(`godot:echo → ${response.reply}`);
     context.emit(webVerification, { reply: response.reply });
   } catch (error) {
-    appendLog(error instanceof Error ? error.message : "godot:echo failed");
+    appendLog(error instanceof Error
+      ? error.message
+      : "godot:echo failed");
   }
 }
 
@@ -127,7 +129,9 @@ function handleWebEcho({ message }: EchoRequest): EchoResponse {
  */
 function onInvokeGodotButton(): void {
   verifyGodotInvoke("Hello from the WebView button").catch((error: unknown) => {
-    appendLog(error instanceof Error ? error.message : "godot:echo failed");
+    appendLog(error instanceof Error
+      ? error.message
+      : "godot:echo failed");
   });
 }
 

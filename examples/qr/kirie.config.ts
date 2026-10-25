@@ -9,7 +9,10 @@ export default defineKirieConfig({
   godot: { csproj: "KirieQr.csproj" },
   web: {
     vite: {
-      plugins: [Vue(), UnoCSS()],
+      plugins: [
+        Vue(),
+        UnoCSS(),
+      ],
       build: { emptyOutDir: true, sourcemap: true },
     },
   },
