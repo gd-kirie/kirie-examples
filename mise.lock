@@ -67,10 +67,10 @@ checksum = "sha256:d2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95
 url = "https://nodejs.org/dist/v24.22.1/node-v24.22.1-win-x64.zip"
 
 [[tools."pipx:apm-cli"]]
-version = "0.34.0"
+version = "0.35.0"
 backend = "pipx:apm-cli"
-specifiers = ["0.34.0"]
-uv = { path = ".mise/locks/pipx-apm-cli/0.34.0", digest = "sha256:8cc6f05964bfc6bf4792aa2fbf44a4210612c7d9d6a8b076b5229ec7f3151806" }
+specifiers = ["0.35.0"]
+uv = { path = ".mise/locks/pipx-apm-cli/0.35.0", digest = "sha256:80a05bd71ff025e24d58424a5645d306f3c39fe49a2401cdbf16f76b6fef2fab" }
 
 [[tools.pnpm]]
 version = "12.15.0"

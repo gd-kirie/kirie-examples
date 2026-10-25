@@ -2,15 +2,15 @@ import { onTextReceived, sendText } from "@gd-kirie/ipc";
 
 import "./style.css";
 
-type WebToGodotMessage =
-  | {
+type WebToGodotMessage
+  = | {
     type: "web_ready";
     payload: {
       source: "app";
       userAgent: string;
     };
-  } |
-  {
+  }
+  | {
     type: "web_ping";
     payload: {
       source: "web";
@@ -38,7 +38,9 @@ function postToGodot(message: WebToGodotMessage): void {
     sendText(messageText);
     appendLog(`Sent text to Godot: ${messageText}`);
   } catch (error) {
-    appendLog(error instanceof Error ? error.message : "Kirie native bridge is unavailable");
+    appendLog(error instanceof Error
+      ? error.message
+      : "Kirie native bridge is unavailable");
   }
 }
 

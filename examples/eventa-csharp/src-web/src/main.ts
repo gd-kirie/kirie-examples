@@ -46,7 +46,9 @@ invokeGodotButton.addEventListener("click", async () => {
     const response = await invokeGodotEcho({ message: "Hello from WebView" });
     appendLog(`godot:echo response: ${response.reply}`);
   } catch (error) {
-    appendLog(error instanceof Error ? error.message : "godot:echo failed");
+    appendLog(error instanceof Error
+      ? error.message
+      : "godot:echo failed");
   }
 });
 

@@ -8,7 +8,10 @@ export default defineKirieConfig({
   plugins: [core, tray],
   web: {
     vite: {
-      plugins: [Vue(), UnoCSS()],
+      plugins: [
+        Vue(),
+        UnoCSS(),
+      ],
       build: { emptyOutDir: true, sourcemap: true },
     },
   },

@@ -9,7 +9,10 @@ export default defineKirieConfig({
   godot: { csproj: "KirieNotifications.csproj" },
   web: {
     vite: {
-      plugins: [Vue(), UnoCSS()],
+      plugins: [
+        Vue(),
+        UnoCSS(),
+      ],
       build: { emptyOutDir: true, sourcemap: true },
     },
   },

@@ -34,7 +34,10 @@ const iosDerivedDataPath = path.join(iosBuildDir, "DerivedData");
 
 async function buildWeb(): Promise<void> {
   const webRoot = path.join(exampleDir, "src-web");
-  await execa(process.execPath, [path.join(webRoot, "node_modules/vite/bin/vite.js"), "build"], {
+  await execa(process.execPath, [
+    path.join(webRoot, "node_modules/vite/bin/vite.js"),
+    "build",
+  ], {
     cwd: webRoot,
     stdio: "inherit",
   });
@@ -247,7 +250,12 @@ async function installAndroidHost(androidSourceTemplate: string): Promise<void> 
   const androidBuildDir = path.join(stagedProjectDir, "android/build");
   fs.rmSync(androidBuildDir, { force: true, recursive: true });
   fs.mkdirSync(androidBuildDir, { recursive: true });
-  await execa("unzip", ["-q", androidSourceTemplate, "-d", androidBuildDir]);
+  await execa("unzip", [
+    "-q",
+    androidSourceTemplate,
+    "-d",
+    androidBuildDir,
+  ]);
   fs.writeFileSync(path.join(androidBuildDir, ".gdignore"), "");
   const templateHash = crypto
     .createHash("md5")
@@ -313,8 +321,8 @@ function verifyExport(): void {
     }
   }
   if (
-    project.includes("MoltenVK.xcframework") &&
-    !fs.existsSync(path.join(exportRoot, "MoltenVK.xcframework"))
+    project.includes("MoltenVK.xcframework")
+    && !fs.existsSync(path.join(exportRoot, "MoltenVK.xcframework"))
   ) {
     throw new Error("Exported Xcode project contains a dangling MoltenVK reference");
   }
@@ -345,7 +353,12 @@ async function prepareIosExport(): Promise<void> {
   );
   const dotnet = await resolveDotnet();
 
-  for (const requiredPath of [godotEditor, godotTemplate, godotNugetDir, dotnet]) {
+  for (const requiredPath of [
+    godotEditor,
+    godotTemplate,
+    godotNugetDir,
+    dotnet,
+  ]) {
     if (!fs.existsSync(requiredPath)) {
       throw new Error(`Required build input does not exist: ${requiredPath}`);
     }
@@ -366,7 +379,12 @@ async function prepareIosExport(): Promise<void> {
     template: godotTemplate,
   });
 
-  await execa(dotnet, ["restore", "BasicHostAppEmbedded.csproj", "--configfile", "NuGet.Config"], {
+  await execa(dotnet, [
+    "restore",
+    "BasicHostAppEmbedded.csproj",
+    "--configfile",
+    "NuGet.Config",
+  ], {
     cwd: stagedProjectDir,
     stdio: "inherit",
   });
@@ -411,12 +429,17 @@ async function prepareAndroidExport(): Promise<void> {
     process.env.GODOT_NUGET_DIR || path.join(godotSourceRoot, "ios_embed_dotnet/nuget"),
   );
   const androidSourceTemplate = path.resolve(
-    process.env.GODOT_ANDROID_SOURCE_TEMPLATE ||
-    path.join(godotSourceRoot, "bin/android_source.zip"),
+    process.env.GODOT_ANDROID_SOURCE_TEMPLATE
+    || path.join(godotSourceRoot, "bin/android_source.zip"),
   );
   const dotnet = await resolveDotnet();
 
-  for (const requiredPath of [godotEditor, godotNugetDir, androidSourceTemplate, dotnet]) {
+  for (const requiredPath of [
+    godotEditor,
+    godotNugetDir,
+    androidSourceTemplate,
+    dotnet,
+  ]) {
     if (!fs.existsSync(requiredPath)) {
       throw new Error(`Required Android build input does not exist: ${requiredPath}`);
     }
@@ -435,7 +458,12 @@ async function prepareAndroidExport(): Promise<void> {
   });
   await installAndroidHost(androidSourceTemplate);
 
-  await execa(dotnet, ["restore", "BasicHostAppEmbedded.csproj", "--configfile", "NuGet.Config"], {
+  await execa(dotnet, [
+    "restore",
+    "BasicHostAppEmbedded.csproj",
+    "--configfile",
+    "NuGet.Config",
+  ], {
     cwd: stagedProjectDir,
     stdio: "inherit",
   });
@@ -478,9 +506,9 @@ async function prepareAndroidExport(): Promise<void> {
 
 function resolveAndroidSdk(): string {
   return path.resolve(
-    process.env.ANDROID_HOME ||
-    process.env.ANDROID_SDK_ROOT ||
-    path.join(process.env.HOME || "", "Library/Android/sdk"),
+    process.env.ANDROID_HOME
+    || process.env.ANDROID_SDK_ROOT
+    || path.join(process.env.HOME || "", "Library/Android/sdk"),
   );
 }
 

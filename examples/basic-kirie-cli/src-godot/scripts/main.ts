@@ -94,7 +94,10 @@ export class _Main extends Control {
     const message_type = `${message.get("type", "")}`;
     if (message_type === "web_ready") {
       this._set_status("Status: received web_ready");
-      const reply = { type: "godot_ready", payload: { message: "Hello from Godot" } };
+      const reply = {
+        type: "godot_ready",
+        payload: { message: "Hello from Godot" },
+      };
       this._kirie.send_text(JSON.stringify(reply));
     }
   }
