@@ -13,7 +13,7 @@ catalog:
   "@moeru/eventa": ^1.0.2
   "@types/node": ^26.6.5
   bumpp: ^12.3.0
-  execa: ^10.2.0
+  execa: ^10.2.1
   eslint: ^10.13.0
   eslint-plugin-format: ^2.0.1
   typescript: ^6.0.3
