@@ -12,6 +12,7 @@ export default defineConfig({
     presetChromatic({
       baseHue: 220.44,
       colors: { primary: 0 },
+      model: "v1",
     }) as Preset,
   ],
 });

@@ -9,17 +9,17 @@
     "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gd-kirie/ipc-eventa": "0.15.0",
-    "@gd-kirie/platform": "0.15.0",
-    "@proj-airi/ui": "0.12.0",
+    "@gd-kirie/ipc-eventa": "0.15.2",
+    "@gd-kirie/platform": "0.15.2",
+    "@proj-airi/ui": "0.13.0",
     "@vueuse/core": "15.0.0",
     "vue": "3.5.44"
   },
   "devDependencies": {
-    "@proj-airi/unocss-preset-chromatic": "1.1.5",
+    "@proj-airi/unocss-preset-chromatic": "2.0.0",
     "@unocss/reset": "66.12.0",
     "@vitejs/plugin-vue": "6.0.10",
-    "kirie": "0.15.0",
+    "kirie": "0.15.2",
     "typescript": "catalog:",
     "unocss": "66.12.0",
     "vite": "catalog:",

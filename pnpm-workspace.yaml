@@ -21,11 +21,11 @@ catalog:
   vite: ^8.3.5
 
 minimumReleaseAgeExclude:
-  - '@gd-kirie/build@0.15.0'
-  - '@gd-kirie/ipc-eventa@0.15.0'
-  - '@gd-kirie/ipc@0.15.0'
+  - '@gd-kirie/build@0.15.2'
+  - '@gd-kirie/ipc-eventa@0.15.2'
+  - '@gd-kirie/ipc@0.15.2'
   - '@gd-kirie/tray@0.15.0'
-  - kirie@0.15.0
+  - kirie@0.15.2
   - '@gd-kirie/notifications@0.15.0'
-  - '@gd-kirie/platform@0.15.0'
+  - '@gd-kirie/platform@0.15.2'
   - '@gd-kirie/qr@0.15.0'
