@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GdKirie.EventaAdapter" Version="0.15.2" />
+    <PackageReference Include="GdKirie.EventaAdapter" Version="0.16.0" />
   </ItemGroup>
 
 </Project>

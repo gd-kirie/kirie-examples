@@ -9,20 +9,21 @@
     "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@gd-kirie/ipc-eventa": "0.15.2",
-    "@gd-kirie/platform": "0.15.2",
-    "@proj-airi/ui": "0.13.0",
+    "@gd-kirie/ipc": "0.16.0",
+    "@gd-kirie/ipc-eventa": "0.16.0",
+    "@gd-kirie/platform": "0.16.0",
+    "@proj-airi/ui": "0.14.0",
     "@vueuse/core": "15.0.0",
     "vue": "3.5.44"
   },
   "devDependencies": {
-    "@proj-airi/unocss-preset-chromatic": "2.0.0",
+    "@proj-airi/unocss-preset-chromatic": "2.0.1",
     "@unocss/reset": "66.12.0",
     "@vitejs/plugin-vue": "6.0.10",
-    "kirie": "0.15.2",
+    "kirie": "0.16.0",
     "typescript": "catalog:",
     "unocss": "66.12.0",
     "vite": "catalog:",
-    "vue-tsc": "3.3.13"
+    "vue-tsc": "3.3.14"
   }
 }
