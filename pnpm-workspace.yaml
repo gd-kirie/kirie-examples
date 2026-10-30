@@ -11,9 +11,9 @@ allowBuilds:
 catalog:
   "@antfu/eslint-config": ^10.0.0
   "@moeru/eventa": ^1.0.2
-  "@types/node": ^26.6.5
+  "@types/node": ^26.6.6
   bumpp: ^12.3.0
-  execa: ^10.2.0
+  execa: ^10.2.1
   eslint: ^10.13.0
   eslint-plugin-format: ^2.0.1
   typescript: ^6.0.3
@@ -21,11 +21,15 @@ catalog:
   vite: ^8.3.5
 
 minimumReleaseAgeExclude:
-  - '@gd-kirie/build@0.15.0'
-  - '@gd-kirie/ipc-eventa@0.15.0'
-  - '@gd-kirie/ipc@0.15.0'
+  - '@gd-kirie/build@0.16.0'
+  - '@gd-kirie/ipc-eventa@0.16.0'
+  - '@gd-kirie/ipc@0.16.0'
   - '@gd-kirie/tray@0.15.0'
-  - kirie@0.15.0
+  - kirie@0.16.0
   - '@gd-kirie/notifications@0.15.0'
-  - '@gd-kirie/platform@0.15.0'
+  - '@gd-kirie/platform@0.16.0'
   - '@gd-kirie/qr@0.15.0'
+  - '@proj-airi/ui@0.14.0'
+  - '@vue/language-core@3.3.14'
+  - vue-tsc@3.3.14
+  - '@proj-airi/unocss-preset-chromatic@2.0.1'
