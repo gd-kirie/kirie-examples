@@ -12,7 +12,7 @@
     "@gd-kirie/ipc": "0.16.0",
     "@gd-kirie/ipc-eventa": "0.16.0",
     "@gd-kirie/platform": "0.16.0",
-    "@proj-airi/ui": "0.15.0",
+    "@proj-airi/ui": "0.15.1",
     "@vueuse/core": "15.0.0",
     "vue": "3.5.44"
   },

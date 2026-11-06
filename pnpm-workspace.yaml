@@ -17,10 +17,12 @@ catalog:
   eslint: ^10.14.0
   eslint-plugin-format: ^2.0.1
   typescript: ^6.0.3
-  typescript-to-gdscript: ^0.1.12
-  vite: ^8.3.5
+  typescript-to-gdscript: ^0.1.13
+  vite: ^8.3.6
 
 minimumReleaseAgeExclude:
+  - 'typescript-to-gdscript@0.1.13'
+  - 'vite@8.3.6'
   - '@gd-kirie/build@0.16.0'
   - '@gd-kirie/ipc-eventa@0.16.0'
   - '@gd-kirie/ipc@0.16.0'
@@ -29,7 +31,7 @@ minimumReleaseAgeExclude:
   - '@gd-kirie/notifications@0.15.0'
   - '@gd-kirie/platform@0.16.0'
   - '@gd-kirie/qr@0.15.0'
-  - '@proj-airi/ui@0.15.0'
+  - '@proj-airi/ui@0.15.1'
   - '@vue/language-core@3.3.14'
   - vue-tsc@3.3.14
   - '@proj-airi/unocss-preset-chromatic@2.0.1'
