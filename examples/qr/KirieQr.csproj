@@ -9,7 +9,8 @@
     <Compile Remove="android/**/*.cs" />
     <Compile Remove="ios/**/*.cs" />
     <Compile Remove="node_modules/**/*.cs" />
-    <PackageReference Include="GdKirie.EventaAdapter" Version="0.15.0" />
+    <PackageReference Include="GdKirie.EventaAdapter" Version="0.16.0" />
+    <PackageReference Include="GdKirie.Platform" Version="0.16.0" />
     <PackageReference Include="GdKirie.Qr" Version="0.15.0" />
   </ItemGroup>
 </Project>

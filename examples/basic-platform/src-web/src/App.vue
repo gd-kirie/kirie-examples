@@ -3,6 +3,7 @@ import type { GlobalShortcut, GlobalShortcutKeyEvent, HostWindowState } from "@g
 import { createContext } from "@gd-kirie/ipc-eventa";
 import { backRequested, createPlatformClient, hostWindowPointerPositionChanged, hostWindowStateChanged } from "@gd-kirie/platform";
 import Button from "@proj-airi/ui/src/components/misc/button.vue";
+import GhostButton from "@proj-airi/ui/src/components/misc/ghost-button.vue";
 import { useIntervalFn } from "@vueuse/core";
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
@@ -281,15 +282,15 @@ onBeforeUnmount(async () => {
         </div>
 
         <div class="mt-5 grid gap-3 md:grid-cols-3">
-          <Button
+          <GhostButton
             block :disabled="!platform || Boolean(busy)"
-            :label="alwaysOnTop ? 'Disable always-on-top' : 'Enable always-on-top'" size="sm" :toggled="alwaysOnTop"
-            variant="secondary-muted" @click="toggleAlwaysOnTop"
+            :label="alwaysOnTop ? 'Disable always-on-top' : 'Enable always-on-top'" size="sm" :active="alwaysOnTop"
+            @click="toggleAlwaysOnTop"
           />
-          <Button
+          <GhostButton
             block :disabled="!platform || Boolean(busy)"
             :label="pointerPassthrough ? 'Disable passthrough' : 'Enable mouse passthrough'" size="sm"
-            :toggled="pointerPassthrough" variant="secondary-muted" @click="togglePointerPassthrough"
+            :active="pointerPassthrough" @click="togglePointerPassthrough"
           />
           <Button
             block :disabled="!platform || Boolean(busy)" label="Center window" size="sm" variant="primary"
@@ -297,11 +298,11 @@ onBeforeUnmount(async () => {
           />
           <Button
             block :disabled="!platform || Boolean(busy)" label="Open Kirie website" size="sm"
-            variant="secondary-muted" @click="openKirieWebsite"
+            variant="secondary" @click="openKirieWebsite"
           />
           <Button
             block :disabled="!platform || Boolean(busy)" label="Open app data directory" size="sm"
-            variant="secondary-muted" @click="openApplicationDataDirectory"
+            variant="secondary" @click="openApplicationDataDirectory"
           />
         </div>
         <p v-if="actionResult" class="mt-3 font-mono text-xs text-neutral-500">
