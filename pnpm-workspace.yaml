@@ -18,11 +18,11 @@ catalog:
   eslint-plugin-format: ^2.0.1
   typescript: ^6.0.3
   typescript-to-gdscript: ^0.1.13
-  vite: ^8.3.6
+  vite: ^8.3.7
 
 minimumReleaseAgeExclude:
   - 'typescript-to-gdscript@0.1.13'
-  - 'vite@8.3.6'
+  - 'vite@8.3.7'
   - '@gd-kirie/build@0.16.0'
   - '@gd-kirie/ipc-eventa@0.16.0'
   - '@gd-kirie/ipc@0.16.0'
@@ -45,3 +45,19 @@ minimumReleaseAgeExclude:
   - '@vue/runtime-dom@3.5.45'
   - '@vue/server-renderer@3.5.45'
   - '@vue/shared@3.5.45'
+  - '@rolldown/binding-android-arm-eabi@1.2.18'
+  - '@rolldown/binding-android-arm64@1.2.18'
+  - '@rolldown/binding-darwin-arm64@1.2.18'
+  - '@rolldown/binding-darwin-x64@1.2.18'
+  - '@rolldown/binding-freebsd-x64@1.2.18'
+  - '@rolldown/binding-linux-arm-gnueabihf@1.2.18'
+  - '@rolldown/binding-linux-arm64-gnu@1.2.18'
+  - '@rolldown/binding-linux-arm64-musl@1.2.18'
+  - '@rolldown/binding-linux-ppc64-gnu@1.2.18'
+  - '@rolldown/binding-linux-s390x-gnu@1.2.18'
+  - '@rolldown/binding-linux-x64-gnu@1.2.18'
+  - '@rolldown/binding-linux-x64-musl@1.2.18'
+  - '@rolldown/binding-openharmony-arm64@1.2.18'
+  - '@rolldown/binding-win32-arm64-msvc@1.2.18'
+  - '@rolldown/binding-win32-x64-msvc@1.2.18'
+  - 'rolldown@1.2.18'
