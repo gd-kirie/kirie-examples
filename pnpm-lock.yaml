@@ -299,8 +299,8 @@ importers:
         specifier: 0.16.0
         version: 0.16.0(h3@2.0.7(crossws@0.4.15(srvx@1.0.6)))(web-worker@1.5.0)
       '@proj-airi/ui':
-        specifier: 0.15.1
-        version: 0.15.1(typescript@6.0.3)
+        specifier: 0.15.2
+        version: 0.15.2(typescript@6.0.3)
       '@vueuse/core':
         specifier: 15.0.0
         version: 15.0.0(vue@3.5.45(typescript@6.0.3))
@@ -364,8 +364,8 @@ importers:
         specifier: 0.15.0
         version: 0.15.0(@types/node@26.6.6)(h3@2.0.7(crossws@0.4.15(srvx@1.0.6)))(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)
       '@proj-airi/ui':
-        specifier: 0.15.1
-        version: 0.15.1(typescript@6.0.3)
+        specifier: 0.15.2
+        version: 0.15.2(typescript@6.0.3)
       vue:
         specifier: 3.5.45
         version: 3.5.45(typescript@6.0.3)
@@ -407,8 +407,8 @@ importers:
         specifier: 0.15.0
         version: 0.15.0(@types/node@26.6.6)(h3@2.0.7(crossws@0.4.15(srvx@1.0.6)))(jiti@2.7.0)(web-worker@1.5.0)(yaml@2.9.1)
       '@proj-airi/ui':
-        specifier: 0.15.1
-        version: 0.15.1(typescript@6.0.3)
+        specifier: 0.15.2
+        version: 0.15.2(typescript@6.0.3)
       vue:
         specifier: 3.5.45
         version: 3.5.45(typescript@6.0.3)
@@ -453,8 +453,8 @@ importers:
         specifier: 'catalog:'
         version: 1.0.2(h3@2.0.7(crossws@0.4.15(srvx@1.0.6)))(web-worker@1.5.0)
       '@proj-airi/ui':
-        specifier: 0.15.1
-        version: 0.15.1(typescript@6.0.3)
+        specifier: 0.15.2
+        version: 0.15.2(typescript@6.0.3)
       vue:
         specifier: 3.5.45
         version: 3.5.45(typescript@6.0.3)
@@ -1094,8 +1094,8 @@ packages:
   '@proj-airi/chromatic@2.0.1':
     resolution: {integrity: sha512-CTZMkkqYEpUdWM1eFqQcJE2FdFKWY7NyrNYfzD4908GYcSVQaJAliVTEGVajxUfOJP0aD13BSyN7vo1PmsuW/g==}
 
-  '@proj-airi/ui@0.15.1':
-    resolution: {integrity: sha512-Cgs3euxJEtHWbJvjeR+BCcsKWO2uaAhH9YydYu147h+nSveOlVrlZYIhRxCyUjBCotgukiOwEHN2UX0ydhVptw==}
+  '@proj-airi/ui@0.15.2':
+    resolution: {integrity: sha512-kKs5IkKiASj0dgoN8BFAr1okqaf4WPlEmCGpN56wsgY9PT+GD6lVnUzjy42QPZN4jxNVsca/o4T8xJXCPa/g3g==}
 
   '@proj-airi/unocss-preset-chromatic@2.0.1':
     resolution: {integrity: sha512-mXzCMxkO5113nhlG4dILCnh3WZgWBn45TEG5tQJzcOSpgqVmJNM9nLbLzB+JDDZ2sMXAo77WrRqSbvWoOlCWbQ==}
@@ -3711,7 +3711,7 @@ snapshots:
     dependencies:
       culori: 4.0.2
 
-  '@proj-airi/ui@0.15.1(typescript@6.0.3)':
+  '@proj-airi/ui@0.15.2(typescript@6.0.3)':
     dependencies:
       '@moeru/std': 0.1.0-beta.17
       '@vueuse/core': 14.4.0(vue@3.5.45(typescript@6.0.3))
