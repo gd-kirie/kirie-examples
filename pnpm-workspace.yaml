@@ -31,7 +31,8 @@ minimumReleaseAgeExclude:
   - '@gd-kirie/notifications@0.15.0'
   - '@gd-kirie/platform@0.16.0'
   - '@gd-kirie/qr@0.15.0'
-  - '@proj-airi/ui@0.15.2'
+  - '@proj-airi/ui@0.15.4'
+  - '@vitejs/plugin-vue@6.0.11'
   - '@vue/language-core@3.3.14'
   - vue-tsc@3.3.14
   - '@proj-airi/unocss-preset-chromatic@2.0.1'
