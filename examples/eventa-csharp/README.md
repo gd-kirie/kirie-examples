@@ -2,10 +2,10 @@
 
 Beginner-friendly Kirie Eventa demo project for Godot C# projects.
 
-This example requires the .NET 10 SDK because `GdKirie.EventaAdapter` directly
-depends on the upstream `Eventa` package, which targets `net10.0`. Projects that
-target `net8.0` or `net9.0` are expected to fail package restore or build when
-they reference the adapter.
+This example requires the .NET 11 SDK and targets `net11.0`.
+`GdKirie.EventaAdapter` directly depends on the upstream `Eventa` package, which
+targets `net10.0`, so projects that target `net9.0` or older are expected to fail
+package restore or build when they reference the adapter.
 
 The example is intentionally separate from exported Android and iOS integration
 tests. It demonstrates the first Eventa adapter path:
