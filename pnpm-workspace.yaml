@@ -14,15 +14,15 @@ catalog:
   "@types/node": ^26.6.6
   bumpp: ^12.3.0
   execa: ^10.2.1
-  eslint: ^10.14.0
+  eslint: ^10.15.0
   eslint-plugin-format: ^2.0.1
   typescript: ^6.0.3
   typescript-to-gdscript: ^0.1.13
-  vite: ^8.3.6
+  vite: ^8.3.8
 
 minimumReleaseAgeExclude:
   - 'typescript-to-gdscript@0.1.13'
-  - 'vite@8.3.6'
+  - 'vite@8.3.8'
   - '@gd-kirie/build@0.16.0'
   - '@gd-kirie/ipc-eventa@0.16.0'
   - '@gd-kirie/ipc@0.16.0'
@@ -31,7 +31,61 @@ minimumReleaseAgeExclude:
   - '@gd-kirie/notifications@0.15.0'
   - '@gd-kirie/platform@0.16.0'
   - '@gd-kirie/qr@0.15.0'
-  - '@proj-airi/ui@0.15.1'
+  - '@proj-airi/ui@0.15.4'
+  - '@vitejs/plugin-vue@6.0.11'
   - '@vue/language-core@3.3.14'
   - vue-tsc@3.3.14
   - '@proj-airi/unocss-preset-chromatic@2.0.1'
+  - 'vue@3.5.45'
+  - '@vue/compiler-core@3.5.45'
+  - '@vue/compiler-dom@3.5.45'
+  - '@vue/compiler-sfc@3.5.45'
+  - '@vue/compiler-ssr@3.5.45'
+  - '@vue/reactivity@3.5.45'
+  - '@vue/runtime-core@3.5.45'
+  - '@vue/runtime-dom@3.5.45'
+  - '@vue/server-renderer@3.5.45'
+  - '@vue/shared@3.5.45'
+  - '@rolldown/binding-android-arm-eabi@1.2.18'
+  - '@rolldown/binding-android-arm64@1.2.18'
+  - '@rolldown/binding-darwin-arm64@1.2.18'
+  - '@rolldown/binding-darwin-x64@1.2.18'
+  - '@rolldown/binding-freebsd-x64@1.2.18'
+  - '@rolldown/binding-linux-arm-gnueabihf@1.2.18'
+  - '@rolldown/binding-linux-arm64-gnu@1.2.18'
+  - '@rolldown/binding-linux-arm64-musl@1.2.18'
+  - '@rolldown/binding-linux-ppc64-gnu@1.2.18'
+  - '@rolldown/binding-linux-s390x-gnu@1.2.18'
+  - '@rolldown/binding-linux-x64-gnu@1.2.18'
+  - '@rolldown/binding-linux-x64-musl@1.2.18'
+  - '@rolldown/binding-openharmony-arm64@1.2.18'
+  - '@rolldown/binding-win32-arm64-msvc@1.2.18'
+  - '@rolldown/binding-win32-x64-msvc@1.2.18'
+  - 'rolldown@1.2.18'
+  - 'eslint@10.15.0'
+  - '@eslint/config-array@0.23.6'
+  - '@unocss/autocomplete@66.13.0'
+  - '@unocss/cli@66.13.0'
+  - '@unocss/config@66.13.0'
+  - '@unocss/core@66.13.0'
+  - '@unocss/extractor-arbitrary-variants@66.13.0'
+  - '@unocss/inspector@66.13.0'
+  - '@unocss/preset-attributify@66.13.0'
+  - '@unocss/preset-icons@66.13.0'
+  - '@unocss/preset-mini@66.13.0'
+  - '@unocss/preset-tagify@66.13.0'
+  - '@unocss/preset-typography@66.13.0'
+  - '@unocss/preset-uno@66.13.0'
+  - '@unocss/preset-web-fonts@66.13.0'
+  - '@unocss/preset-wind3@66.13.0'
+  - '@unocss/preset-wind4@66.13.0'
+  - '@unocss/preset-wind@66.13.0'
+  - '@unocss/reset@66.13.0'
+  - '@unocss/rollup@66.13.0'
+  - '@unocss/rule-utils@66.13.0'
+  - '@unocss/transformer-attributify-jsx@66.13.0'
+  - '@unocss/transformer-compile-class@66.13.0'
+  - '@unocss/transformer-directives@66.13.0'
+  - '@unocss/transformer-variant-group@66.13.0'
+  - '@unocss/vite@66.13.0'
+  - unocss@66.13.0
