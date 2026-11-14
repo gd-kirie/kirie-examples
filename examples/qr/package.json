@@ -17,11 +17,11 @@
   },
   "devDependencies": {
     "@proj-airi/unocss-preset-chromatic": "2.0.1",
-    "@unocss/reset": "66.12.0",
+    "@unocss/reset": "66.13.0",
     "@vitejs/plugin-vue": "6.0.11",
     "kirie": "0.16.0",
     "typescript": "catalog:",
-    "unocss": "66.12.0",
+    "unocss": "66.13.0",
     "vite": "catalog:",
     "vue-tsc": "3.3.14"
   }
