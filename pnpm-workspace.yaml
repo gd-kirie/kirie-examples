@@ -89,3 +89,6 @@ minimumReleaseAgeExclude:
   - '@unocss/transformer-variant-group@66.13.0'
   - '@unocss/vite@66.13.0'
   - unocss@66.13.0
+  - '@vueuse/core@15.1.0'
+  - '@vueuse/metadata@15.1.0'
+  - '@vueuse/shared@15.1.0'
