@@ -11,7 +11,7 @@ allowBuilds:
 catalog:
   "@antfu/eslint-config": ^10.0.0
   "@moeru/eventa": ^1.0.2
-  "@types/node": ^26.6.7
+  "@types/node": ^26.6.11
   bumpp: ^12.3.0
   execa: ^10.2.1
   eslint: ^10.15.0
@@ -92,4 +92,4 @@ minimumReleaseAgeExclude:
   - '@vueuse/core@15.1.0'
   - '@vueuse/metadata@15.1.0'
   - '@vueuse/shared@15.1.0'
-  - '@types/node@26.6.7'
+  - '@types/node@26.6.11'
