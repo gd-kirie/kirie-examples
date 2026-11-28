@@ -63,8 +63,9 @@ Godot's .NET iOS exporter still owns the PCK and NativeAOT XCFramework.
 This is not a multi-engine LibGodot API. One process owns one Godot engine and
 one current Godot view controller.
 
-The current Eventa.NET package targets `net10.0`, so this example uses
-`Godot.NET.Sdk/4.7.2` with `net10.0`. Its iOS NativeAOT export is part
+This example stays on `net10.0` with `Godot.NET.Sdk/4.7.2` because the Godot
+fork's `ios_embed_dotnet` NuGet packages and iOS NativeAOT runtime packs are built
+for .NET 10. Its iOS NativeAOT export is part
 of the runtime verification, not inferred from the desktop Eventa example.
 
 The adapter's NuGet package supplies its source bridge through `contentFiles`. The scene still owns one `KirieNode`, while
